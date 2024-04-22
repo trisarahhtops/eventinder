@@ -15,19 +15,19 @@ struct ContentView: View {
             TabView(selection: $tabViewSelection) {
                 ExploreView()
                     .tabItem {
-                        Label("score board", systemImage: "list.number")
+                        Label("explore", systemImage: "safari.fill")
                     }.tag(0)
                 GroupView()
                     .tabItem {
-                        Label("game", systemImage: "gamecontroller")
+                        Label("groups", systemImage: "person.3.fill")
                     }.tag(1)
                 DecisionView()
                     .tabItem {
-                        Label("settings", systemImage: "gearshape")
+                        Label("decisions", systemImage: "hand.draw.fill")
                     }.tag(2)
                 MatchesView()
                     .tabItem {
-                        Label("settings", systemImage: "gearshape")
+                        Label("matches", systemImage: "equal.circle.fill")
                     }.tag(2)
             }
         }
