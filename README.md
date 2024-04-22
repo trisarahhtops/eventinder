@@ -21,6 +21,7 @@ README
   -> scroll through events
   -> see events details
 - Group Screen
-  -> Create Group
-  -> See Group Matches
+  -> create Group
+  -> decide on group events
+  -> see Group Matches
   
