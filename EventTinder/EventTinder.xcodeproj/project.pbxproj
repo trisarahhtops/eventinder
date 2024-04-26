@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		184B89812BDB62B100728576 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89802BDB62B100728576 /* SignUpView.swift */; };
+		184B89832BDB63E400728576 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 184B89822BDB63E400728576 /* GoogleService-Info.plist */; };
+		184B89862BDB641300728576 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 184B89852BDB641300728576 /* FirebaseAnalytics */; };
+		184B89882BDB641300728576 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 184B89872BDB641300728576 /* FirebaseAnalyticsSwift */; };
 		18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */; };
 		18DA3AC92BD5ECB50065F151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC82BD5ECB50065F151 /* ContentView.swift */; };
 		18DA3ACB2BD5ECB80065F151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DA3ACA2BD5ECB70065F151 /* Assets.xcassets */; };
@@ -20,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		184B89802BDB62B100728576 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		184B89822BDB63E400728576 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18DA3AC32BD5ECB50065F151 /* EventTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTinderApp.swift; sourceTree = "<group>"; };
 		18DA3AC82BD5ECB50065F151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184B89882BDB641300728576 /* FirebaseAnalyticsSwift in Frameworks */,
+				184B89862BDB641300728576 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +94,7 @@
 				18DA3ADB2BD626A30065F151 /* ExploreView.swift */,
 				18DA3AD92BD626750065F151 /* GroupView.swift */,
 				18DA3AD72BD626550065F151 /* DecisionView.swift */,
+				184B89822BDB63E400728576 /* GoogleService-Info.plist */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +129,10 @@
 			dependencies = (
 			);
 			name = EventTinder;
+			packageProductDependencies = (
+				184B89852BDB641300728576 /* FirebaseAnalytics */,
+				184B89872BDB641300728576 /* FirebaseAnalyticsSwift */,
+			);
 			productName = EventTinder;
 			productReference = 18DA3AC32BD5ECB50065F151 /* EventTinder.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 18DA3ABA2BD5ECB50065F151;
+			packageReferences = (
+				184B89842BDB641300728576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 18DA3AC42BD5ECB50065F151 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -165,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DA3ACE2BD5ECB80065F151 /* Preview Assets.xcassets in Resources */,
+				184B89832BDB63E400728576 /* GoogleService-Info.plist in Resources */,
 				18DA3ACB2BD5ECB80065F151 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +401,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		184B89842BDB641300728576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.24.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		184B89852BDB641300728576 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 184B89842BDB641300728576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		184B89872BDB641300728576 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 184B89842BDB641300728576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 18DA3ABB2BD5ECB50065F151 /* Project object */;
 }
