@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		184B89812BDB62B100728576 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89802BDB62B100728576 /* SignUpView.swift */; };
+		184B89812BDB62B100728576 /* SignUpEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89802BDB62B100728576 /* SignUpEmailView.swift */; };
 		184B89832BDB63E400728576 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 184B89822BDB63E400728576 /* GoogleService-Info.plist */; };
 		184B89862BDB641300728576 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 184B89852BDB641300728576 /* FirebaseAnalytics */; };
 		184B89882BDB641300728576 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 184B89872BDB641300728576 /* FirebaseAnalyticsSwift */; };
+		184B898B2BDB65CB00728576 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 184B898A2BDB65CB00728576 /* FirebaseAuth */; };
+		184B898D2BDB663200728576 /* AuthentificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B898C2BDB663200728576 /* AuthentificationView.swift */; };
+		184B89902BDB681400728576 /* SignUpEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B898F2BDB681400728576 /* SignUpEmailViewModel.swift */; };
 		18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */; };
 		18DA3AC92BD5ECB50065F151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC82BD5ECB50065F151 /* ContentView.swift */; };
 		18DA3ACB2BD5ECB80065F151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DA3ACA2BD5ECB70065F151 /* Assets.xcassets */; };
@@ -22,8 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		184B89802BDB62B100728576 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		184B89802BDB62B100728576 /* SignUpEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailView.swift; sourceTree = "<group>"; };
 		184B89822BDB63E400728576 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		184B898C2BDB663200728576 /* AuthentificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationView.swift; sourceTree = "<group>"; };
+		184B898F2BDB681400728576 /* SignUpEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpEmailViewModel.swift; path = EventTinder/View/SignUpEmailViewModel.swift; sourceTree = SOURCE_ROOT; };
 		18DA3AC32BD5ECB50065F151 /* EventTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTinderApp.swift; sourceTree = "<group>"; };
 		18DA3AC82BD5ECB50065F151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +46,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				184B89882BDB641300728576 /* FirebaseAnalyticsSwift in Frameworks */,
+				184B898B2BDB65CB00728576 /* FirebaseAuth in Frameworks */,
 				184B89862BDB641300728576 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,11 +54,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		184B89892BDB65CB00728576 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		184B898E2BDB663900728576 /* Authentification */ = {
+			isa = PBXGroup;
+			children = (
+				184B89802BDB62B100728576 /* SignUpEmailView.swift */,
+				184B898C2BDB663200728576 /* AuthentificationView.swift */,
+			);
+			path = Authentification;
+			sourceTree = "<group>";
+		};
 		18DA3ABA2BD5ECB50065F151 = {
 			isa = PBXGroup;
 			children = (
 				18DA3AC52BD5ECB50065F151 /* EventTinder */,
 				18DA3AC42BD5ECB50065F151 /* Products */,
+				184B89892BDB65CB00728576 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,11 +112,11 @@
 			isa = PBXGroup;
 			children = (
 				18DA3AC82BD5ECB50065F151 /* ContentView.swift */,
-				184B89802BDB62B100728576 /* SignUpView.swift */,
 				18DA3ADD2BD626BD0065F151 /* MatchesView.swift */,
 				18DA3ADB2BD626A30065F151 /* ExploreView.swift */,
 				18DA3AD92BD626750065F151 /* GroupView.swift */,
 				18DA3AD72BD626550065F151 /* DecisionView.swift */,
+				184B898E2BDB663900728576 /* Authentification */,
 				184B89822BDB63E400728576 /* GoogleService-Info.plist */,
 			);
 			path = View;
@@ -109,6 +132,7 @@
 		18DA3AD62BD6259E0065F151 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				184B898F2BDB681400728576 /* SignUpEmailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -132,6 +156,7 @@
 			packageProductDependencies = (
 				184B89852BDB641300728576 /* FirebaseAnalytics */,
 				184B89872BDB641300728576 /* FirebaseAnalyticsSwift */,
+				184B898A2BDB65CB00728576 /* FirebaseAuth */,
 			);
 			productName = EventTinder;
 			productReference = 18DA3AC32BD5ECB50065F151 /* EventTinder.app */;
@@ -194,10 +219,12 @@
 				18DA3AC92BD5ECB50065F151 /* ContentView.swift in Sources */,
 				18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */,
 				18DA3ADA2BD626750065F151 /* GroupView.swift in Sources */,
-				184B89812BDB62B100728576 /* SignUpView.swift in Sources */,
+				184B89812BDB62B100728576 /* SignUpEmailView.swift in Sources */,
 				18DA3AD82BD626550065F151 /* DecisionView.swift in Sources */,
 				18DA3ADE2BD626BD0065F151 /* MatchesView.swift in Sources */,
+				184B89902BDB681400728576 /* SignUpEmailViewModel.swift in Sources */,
 				18DA3ADC2BD626A30065F151 /* ExploreView.swift in Sources */,
+				184B898D2BDB663200728576 /* AuthentificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +450,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 184B89842BDB641300728576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsSwift;
+		};
+		184B898A2BDB65CB00728576 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 184B89842BDB641300728576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
