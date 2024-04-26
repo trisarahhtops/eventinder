@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184B89812BDB62B100728576 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89802BDB62B100728576 /* SignUpView.swift */; };
 		18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */; };
 		18DA3AC92BD5ECB50065F151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC82BD5ECB50065F151 /* ContentView.swift */; };
 		18DA3ACB2BD5ECB80065F151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DA3ACA2BD5ECB70065F151 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		184B89802BDB62B100728576 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		18DA3AC32BD5ECB50065F151 /* EventTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTinderApp.swift; sourceTree = "<group>"; };
 		18DA3AC82BD5ECB50065F151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				18DA3AC82BD5ECB50065F151 /* ContentView.swift */,
+				184B89802BDB62B100728576 /* SignUpView.swift */,
 				18DA3ADD2BD626BD0065F151 /* MatchesView.swift */,
 				18DA3ADB2BD626A30065F151 /* ExploreView.swift */,
 				18DA3AD92BD626750065F151 /* GroupView.swift */,
@@ -176,6 +179,7 @@
 				18DA3AC92BD5ECB50065F151 /* ContentView.swift in Sources */,
 				18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */,
 				18DA3ADA2BD626750065F151 /* GroupView.swift in Sources */,
+				184B89812BDB62B100728576 /* SignUpView.swift in Sources */,
 				18DA3AD82BD626550065F151 /* DecisionView.swift in Sources */,
 				18DA3ADE2BD626BD0065F151 /* MatchesView.swift in Sources */,
 				18DA3ADC2BD626A30065F151 /* ExploreView.swift in Sources */,
