@@ -18,6 +18,8 @@
 		184B89942BDC756700728576 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89932BDC756700728576 /* ProfileView.swift */; };
 		184B89962BDC75D600728576 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89952BDC75D600728576 /* ProfileViewModel.swift */; };
 		184B89982BDC78D600728576 /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89972BDC78D600728576 /* CreateGroupView.swift */; };
+		184B899B2BDC8AB300728576 /* GroupRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B899A2BDC8AB300728576 /* GroupRowView.swift */; };
+		184B899D2BDCB0B700728576 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B899C2BDCB0B700728576 /* Group.swift */; };
 		18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */; };
 		18DA3AC92BD5ECB50065F151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC82BD5ECB50065F151 /* ContentView.swift */; };
 		18DA3ACB2BD5ECB80065F151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DA3ACA2BD5ECB70065F151 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 		184B89932BDC756700728576 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		184B89952BDC75D600728576 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		184B89972BDC78D600728576 /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
+		184B899A2BDC8AB300728576 /* GroupRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRowView.swift; sourceTree = "<group>"; };
+		184B899C2BDCB0B700728576 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = EventTinder/View/Groups/Group.swift; sourceTree = SOURCE_ROOT; };
 		18DA3AC32BD5ECB50065F151 /* EventTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTinderApp.swift; sourceTree = "<group>"; };
 		18DA3AC82BD5ECB50065F151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +80,17 @@
 				184B898C2BDB663200728576 /* AuthentificationView.swift */,
 			);
 			path = Authentification;
+			sourceTree = "<group>";
+		};
+		184B89992BDC8A4600728576 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				18DA3AD92BD626750065F151 /* GroupView.swift */,
+				184B899A2BDC8AB300728576 /* GroupRowView.swift */,
+				184B89972BDC78D600728576 /* CreateGroupView.swift */,
+				184B89932BDC756700728576 /* ProfileView.swift */,
+			);
+			path = Groups;
 			sourceTree = "<group>";
 		};
 		18DA3ABA2BD5ECB50065F151 = {
@@ -120,13 +135,11 @@
 			isa = PBXGroup;
 			children = (
 				18DA3AC82BD5ECB50065F151 /* ContentView.swift */,
-				18DA3ADD2BD626BD0065F151 /* MatchesView.swift */,
-				18DA3ADB2BD626A30065F151 /* ExploreView.swift */,
-				18DA3AD92BD626750065F151 /* GroupView.swift */,
-				184B89972BDC78D600728576 /* CreateGroupView.swift */,
-				18DA3AD72BD626550065F151 /* DecisionView.swift */,
-				184B89932BDC756700728576 /* ProfileView.swift */,
 				184B898E2BDB663900728576 /* Authentification */,
+				18DA3ADB2BD626A30065F151 /* ExploreView.swift */,
+				184B89992BDC8A4600728576 /* Groups */,
+				18DA3AD72BD626550065F151 /* DecisionView.swift */,
+				18DA3ADD2BD626BD0065F151 /* MatchesView.swift */,
 				184B89822BDB63E400728576 /* GoogleService-Info.plist */,
 			);
 			path = View;
@@ -135,6 +148,7 @@
 		18DA3AD52BD625950065F151 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				184B899C2BDCB0B700728576 /* Group.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,6 +245,8 @@
 				18DA3AC92BD5ECB50065F151 /* ContentView.swift in Sources */,
 				18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */,
 				184B89982BDC78D600728576 /* CreateGroupView.swift in Sources */,
+				184B899D2BDCB0B700728576 /* Group.swift in Sources */,
+				184B899B2BDC8AB300728576 /* GroupRowView.swift in Sources */,
 				18DA3ADA2BD626750065F151 /* GroupView.swift in Sources */,
 				184B89812BDB62B100728576 /* SignInEmailView.swift in Sources */,
 				18DA3AD82BD626550065F151 /* DecisionView.swift in Sources */,
