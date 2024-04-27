@@ -1,13 +1,13 @@
 //
-//  Groupview.swift
+//  CreateGroupView.swift
 //  EventTinder
 //
-//  Created by Amelie Patzer on 22.04.24.
+//  Created by Amelie Patzer on 27.04.24.
 //
 
 import SwiftUI
 
-struct GroupView: View {
+struct CreateGroupView: View {
     var body: some View {
         VStack {
             Text("My Groups")
@@ -18,17 +18,10 @@ struct GroupView: View {
             List {
                 
             }
-            NavigationStack {
-                NavigationLink("Profile") {
-                    ProfileView()
-                }
-            }
         }
     }
 }
 
 #Preview {
-    NavigationStack {
-        GroupView()
-    }
+    CreateGroupView()
 }

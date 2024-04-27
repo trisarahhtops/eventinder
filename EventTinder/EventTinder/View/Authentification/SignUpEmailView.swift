@@ -24,7 +24,7 @@ struct SignUpEmailView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
             Button {
-                //viewModel.signIn()
+                viewModel.signIn()
             } label: {
                 Text("Sign Up")
                     .font(.headline)
