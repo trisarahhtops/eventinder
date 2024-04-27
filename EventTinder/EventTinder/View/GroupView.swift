@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GroupView: View {
+    @Binding var showSignInView: Bool
+    
     var body: some View {
         VStack {
             Text("My Groups")
@@ -20,7 +22,7 @@ struct GroupView: View {
             }
             NavigationStack {
                 NavigationLink("Profile") {
-                    ProfileView()
+                    ProfileView(showSignInView: $showSignInView)
                 }
             }
         }
@@ -29,6 +31,6 @@ struct GroupView: View {
 
 #Preview {
     NavigationStack {
-        GroupView()
+        GroupView(showSignInView: .constant(false))
     }
 }
