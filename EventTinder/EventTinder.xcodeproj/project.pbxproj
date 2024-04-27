@@ -20,6 +20,7 @@
 		184B89982BDC78D600728576 /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89972BDC78D600728576 /* CreateGroupView.swift */; };
 		184B899B2BDC8AB300728576 /* GroupRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B899A2BDC8AB300728576 /* GroupRowView.swift */; };
 		184B899D2BDCB0B700728576 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B899C2BDCB0B700728576 /* Group.swift */; };
+		184B899F2BDCC65500728576 /* CreateGroupProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B899E2BDCC65500728576 /* CreateGroupProfileView.swift */; };
 		18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */; };
 		18DA3AC92BD5ECB50065F151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC82BD5ECB50065F151 /* ContentView.swift */; };
 		18DA3ACB2BD5ECB80065F151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DA3ACA2BD5ECB70065F151 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		184B89972BDC78D600728576 /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
 		184B899A2BDC8AB300728576 /* GroupRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRowView.swift; sourceTree = "<group>"; };
 		184B899C2BDCB0B700728576 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = EventTinder/View/Groups/Group.swift; sourceTree = SOURCE_ROOT; };
+		184B899E2BDCC65500728576 /* CreateGroupProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupProfileView.swift; sourceTree = "<group>"; };
 		18DA3AC32BD5ECB50065F151 /* EventTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTinderApp.swift; sourceTree = "<group>"; };
 		18DA3AC82BD5ECB50065F151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				18DA3AD92BD626750065F151 /* GroupView.swift */,
 				184B899A2BDC8AB300728576 /* GroupRowView.swift */,
 				184B89972BDC78D600728576 /* CreateGroupView.swift */,
+				184B899E2BDCC65500728576 /* CreateGroupProfileView.swift */,
 				184B89932BDC756700728576 /* ProfileView.swift */,
 			);
 			path = Groups;
@@ -246,6 +249,7 @@
 				18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */,
 				184B89982BDC78D600728576 /* CreateGroupView.swift in Sources */,
 				184B899D2BDCB0B700728576 /* Group.swift in Sources */,
+				184B899F2BDCC65500728576 /* CreateGroupProfileView.swift in Sources */,
 				184B899B2BDC8AB300728576 /* GroupRowView.swift in Sources */,
 				18DA3ADA2BD626750065F151 /* GroupView.swift in Sources */,
 				184B89812BDB62B100728576 /* SignInEmailView.swift in Sources */,
