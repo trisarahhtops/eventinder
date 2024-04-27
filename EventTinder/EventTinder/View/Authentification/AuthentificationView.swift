@@ -9,13 +9,15 @@ import SwiftUI
 
 // displays the possible ways to Login/SignUp to the app
 struct AuthentificationView: View {
+    @Binding var showSignInView: Bool
+    
     var body: some View {
         VStack {
             Text("Sign Up")
                 .font(.title)
                 .bold()
             NavigationLink {
-                SignUpEmailView()
+                SignInEmailView(showSignInView: $showSignInView)
             } label: {
                 Text("Sign Up via Email")
                     .font(.headline)
@@ -32,7 +34,7 @@ struct AuthentificationView: View {
 
 #Preview {
     NavigationStack {
-        AuthentificationView()
+        AuthentificationView(showSignInView: .constant(false))
     }
         
 }
