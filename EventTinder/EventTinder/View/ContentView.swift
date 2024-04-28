@@ -24,6 +24,10 @@ struct ContentView: View {
                             .tabItem {
                                 Label("groups", systemImage: "person.3.fill")
                             }.tag(1)
+                        VStack { //There is an issue with the viewing right now
+                            CardStackView(viewModel: viewModel)
+                            SwipeButtonView(viewModel: viewModel)
+                        }
                         DecisionView()
                             .tabItem {
                                 Label("decisions", systemImage: "hand.draw.fill")

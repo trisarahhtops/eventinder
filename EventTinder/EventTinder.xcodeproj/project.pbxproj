@@ -39,6 +39,8 @@
 		262F46952BDE6528006443FD /* DecisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F46942BDE6528006443FD /* DecisionModel.swift */; };
 		262F46972BDE653D006443FD /* DecisionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F46962BDE653D006443FD /* DecisionViewModel.swift */; };
 		262F46992BDE654E006443FD /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F46982BDE654E006443FD /* SwipeAction.swift */; };
+		262F469C2BDE65BA006443FD /* SizeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F469B2BDE65BA006443FD /* SizeConstants.swift */; };
+		262F46A02BDE65E9006443FD /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F469F2BDE65E9006443FD /* MockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		262F46942BDE6528006443FD /* DecisionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionModel.swift; sourceTree = "<group>"; };
 		262F46962BDE653D006443FD /* DecisionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionViewModel.swift; sourceTree = "<group>"; };
 		262F46982BDE654E006443FD /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
+		262F469B2BDE65BA006443FD /* SizeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeConstants.swift; sourceTree = "<group>"; };
+		262F469F2BDE65E9006443FD /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,7 @@
 		262F46612BDCEB05006443FD /* Decisions */ = {
 			isa = PBXGroup;
 			children = (
+				262F469A2BDE65A3006443FD /* Utils */,
 				262F46822BDE6417006443FD /* Service */,
 				18DA3AD72BD626550065F151 /* DecisionView.swift */,
 				262F468D2BDE64A8006443FD /* CardStackView.swift */,
@@ -218,6 +223,15 @@
 				262F46982BDE654E006443FD /* SwipeAction.swift */,
 			);
 			path = "Decisions Model";
+			sourceTree = "<group>";
+		};
+		262F469A2BDE65A3006443FD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				262F469B2BDE65BA006443FD /* SizeConstants.swift */,
+				262F469F2BDE65E9006443FD /* MockData.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +318,7 @@
 				18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */,
 				184B89982BDC78D600728576 /* CreateGroupView.swift in Sources */,
 				184B899D2BDCB0B700728576 /* Group.swift in Sources */,
+				262F46A02BDE65E9006443FD /* MockData.swift in Sources */,
 				184B899B2BDC8AB300728576 /* GroupRowView.swift in Sources */,
 				262F46992BDE654E006443FD /* SwipeAction.swift in Sources */,
 				18DA3ADA2BD626750065F151 /* GroupView.swift in Sources */,
@@ -316,6 +331,7 @@
 				18DA3ADE2BD626BD0065F151 /* MatchesView.swift in Sources */,
 				262F46952BDE6528006443FD /* DecisionModel.swift in Sources */,
 				184B89902BDB681400728576 /* SignInEmailViewModel.swift in Sources */,
+				262F469C2BDE65BA006443FD /* SizeConstants.swift in Sources */,
 				18DA3ADC2BD626A30065F151 /* ExploreView.swift in Sources */,
 				262F468A2BDE6475006443FD /* ImageScrollOverlay.swift in Sources */,
 				262F468E2BDE64A8006443FD /* CardStackView.swift in Sources */,
