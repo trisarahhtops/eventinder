@@ -22,7 +22,9 @@ struct GroupRowView: View {
             HStack {
                 group.image
                     .resizable()
-                    .frame(width: 42, height: 42)
+                    .frame(width: 56, height: 56)
+                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(.gray.opacity(0.6))
                 VStack {
                     Text(group.groupName)
                         .font(.headline)
