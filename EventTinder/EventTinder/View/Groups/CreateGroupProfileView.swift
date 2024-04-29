@@ -2,15 +2,16 @@
 //  CreateGroupProfileView.swift
 //  EventTinder
 //
-//  Created by Amelie Patzer on 27.04.24.
+//  Created by Amelie Patzer on 29.04.24.
 //
 
 import SwiftUI
 
 struct CreateGroupProfileView: View {
     @State private var groupPicture: Image = Image(.group1)
-    
+
     var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         VStack{
             Text("New Group")
                 .font(.title)
@@ -60,7 +61,7 @@ struct CreateGroupProfileView: View {
             }
             Spacer()
             NavigationLink("Create Group") {
-                
+
             }
             .font(.headline)
             .foregroundColor(.white)
@@ -71,8 +72,4 @@ struct CreateGroupProfileView: View {
         }
         .padding(20)
     }
-}
-
-#Preview {
-    CreateGroupProfileView()
 }
