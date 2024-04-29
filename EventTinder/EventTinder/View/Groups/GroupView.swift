@@ -25,7 +25,7 @@ struct GroupView: View {
                     } label: {
                         Image(systemName: "person.crop.circle")
                             .resizable()
-                            .frame(width: 24, height: 24)
+                            .frame(width: 32, height: 32)
                             .padding(4)
                             .foregroundColor(.gray.opacity(0.6))
                     }
@@ -36,7 +36,7 @@ struct GroupView: View {
             
             NavigationStack {
                 NavigationLink {
-                    
+                    CreateGroupView(isSelected: false)
                 } label: {
                     Text("Create new group")
                         .font(.headline)
