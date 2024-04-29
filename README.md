@@ -43,3 +43,7 @@ Our target audience would be individuals aged 16-40 who have a hard time decidin
 - liking events (Firebase) (Julia)
 - get events from eventbrite API
 - start presentation (Sarah)
+
+
+**Other things**
+- Eventbrite API key: MSFWRMCLMXKPJC3SHTGB (from email eventtinderproject2024@gmail.com)
