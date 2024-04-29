@@ -7,7 +7,7 @@ Not knowing what to do and being bored by the options seen in a list as well as 
 
 Our app 'Eventinder', addresses the issue of individuals who have a hard time selecting activities or events to do with friends. We aim to provide them with a seamless event-finding experience through a 'Tinder-like' format of searching for events to do with friends and tackle the issue of indecisiveness. 
 
-Quote: “We are standing in our Melbourne Hostel and both of us are open to everything…we do not know what to do and neither of us really want to be the one to choose”
+Quote: “We are standing in our Melbourne Hostel and both of us are open to everything… we do not know what to do and neither of us really want to be the one to choose”
 
 **Target Audience**
 
@@ -36,18 +36,13 @@ Our target audience would be individuals aged 16-40 who have a hard time decidin
   -> see Group Matches
   
 **Other things**
-  -Eventbrite API key: MSFWRMCLMXKPJC3SHTGB
+- Eventbrite API key: MSFWRMCLMXKPJC3SHTGB (from email eventtinderproject2024@gmail.com)
   
 **ToDos until next Week**
-- read up about MongoDB
-- set up a MongoDB database
-- how to connect people to a group
--> julia
-
-- have a look at the eventbrite API
--> sarah and amelie
-  
-- set up the screens and navigation
-- deciding and matches -> sarah
-- group, create group and login screen, ContentView -> amelie
-  
+- Matches Screen, Explore Screen (Sarah)
+- Group Picture Screen (Amelie)
+- Eventbrite Authentication (Amelie)
+- Connecting people in groups (Firebase) (Julia)
+- liking events (Firebase) (Julia)
+- get events from eventbrite API
+- start presentation (Sarah)
