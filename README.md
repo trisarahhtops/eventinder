@@ -34,8 +34,10 @@ Our target audience would be individuals aged 16-40 who have a hard time decidin
   -> create Group
   -> decide on group events
   -> see Group Matches
+  
 **Other things**
   -Eventbrite API key: MSFWRMCLMXKPJC3SHTGB
+  
 **ToDos until next Week**
 - read up about MongoDB
 - set up a MongoDB database
