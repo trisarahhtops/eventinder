@@ -37,7 +37,7 @@ struct CreateGroupView: View {
             // TODO fix: search bar does not show when view is opened from contentview
             .searchable(text: $searchText)
             NavigationLink("select groupname") {
-                CreateGroupProfileView()
+               // CreateGroupProfileView()
             }
             .disabled(!isSelected)
             .font(.headline)
