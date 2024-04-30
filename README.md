@@ -49,4 +49,5 @@ Our target audience would be individuals aged 16-40 who have a hard time decidin
 - Eventbrite API key: MSFWRMCLMXKPJC3SHTGB (from email eventtinderproject2024@gmail.com)
 
 **Presentation Link**
+
 Canva: https://www.canva.com/design/DAGD3F43KRA/FltqUDjDzF7B279FfxCegA/edit?utm_content=DAGD3F43KRA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
