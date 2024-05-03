@@ -39,4 +39,11 @@ final class UserManagerViewModel {
         return User(userId: userId as! String, email: email, photoURL: photoURL)
     }
     
+    func searchUser(searchStr: String){
+        Firestore.firestore().collection("users")
+            .order(by: "user_id")
+            .start(at: [searchStr])
+            .limit(to: 10)
+    }
+    
 }
