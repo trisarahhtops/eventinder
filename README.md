@@ -47,6 +47,7 @@ Our target audience would be individuals aged 16-40 who have a hard time decidin
 
 **Other things**
 - Eventbrite API key: MSFWRMCLMXKPJC3SHTGB (from email eventtinderproject2024@gmail.com)
+- Firebase will be online until 02/08/24 the project will not work after this date
 - Solve for the problem with the Firebase package: discard changes on xcuserstate and package.resolved files
 
 **Presentation Link**
