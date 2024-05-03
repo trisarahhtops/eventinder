@@ -13,6 +13,7 @@ struct User: Codable {
     let uid: String
     let email: String?
     let photoURL: String?
+    let eventIds: [String]?
 }
 
 
@@ -27,7 +28,7 @@ final class UserManagerViewModel {
     
     func createNewUser(user: User) async throws{
     //use to add a user to the database:
-        //let user = User(userId: someString, email: optionalString, photoURL: optionalString)
+        //let user = User(userId: someString, email: optionalString, photoURL: optionalString, eventIds: optionalArray)
         //UserManager.shared.createnewUser(user: user)
 
         try userDocument(userId: user.uid).setData(from: user, merge: false)
@@ -41,13 +42,14 @@ final class UserManagerViewModel {
         return snapshot
     }
     
-    func searchUser(searchStr: String) async throws {
-        try await userCollection
-            .whereField("user_id", arrayContains: searchStr).getDocuments(as: User.self)
-    }
+
     
     func editUser(user: User) async throws {
         try userDocument(userId: user.uid).setData(from: user, merge: true)
+    }
+    
+    func userLikesEvent(userId: String, eventId: String){
+        userDocument(userId: userId).updateData(["eventIds": FieldValue.arrayUnion([eventId])])
     }
     
 }

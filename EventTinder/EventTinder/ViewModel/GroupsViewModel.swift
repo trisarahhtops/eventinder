@@ -25,10 +25,41 @@ final class GroupsViewModel {
     }
     
     func createNewGroup(group: group) async throws {
-        try groupDocument(groupId: group.gid).setData(from: group, merge: false)
+        if try await checkMembers(memb: group.members) {
+            try groupDocument(groupId: group.gid).setData(from: group, merge: false)
+        }
     }
     
     func editGroup(group: group) async throws {
-        try groupDocument(groupId: group.gid).setData(from: group, merge: true)
+        if try await checkMembers(memb: group.members){
+            try groupDocument(groupId: group.gid).setData(from: group, merge: true)
+        }
+
+    }
+    
+    func checkMembers(memb: [String]) async throws -> Bool {
+        
+        for i in memb {
+            //check if user exists!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //Firestore.firestore().collection("users")
+        }
+    }
+    
+    func mutualLikes(groupId: String) async throws -> [Events] {
+        var likedEventsByMembers: [[String]?] = []
+        for i in try await groupDocument(groupId: groupId).getDocument(as: group.self).members {
+            await likedEventsByMembers.append(try Firestore.firestore().collection("users").document(i).getDocument(as: User.self).eventIds)
+        }
+        let memb1Events = likedEventsByMembers[0]
+        var mutualLikedEvents: [String] = []
+        for i in memb1Events {
+            for j in likedEventsByMembers {
+                if(j?.contains(i)){
+                    
+                } else {
+                    break
+                }
+            }
+        }
     }
 }
