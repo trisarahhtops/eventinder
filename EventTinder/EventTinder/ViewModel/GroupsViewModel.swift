@@ -52,9 +52,12 @@ final class GroupsViewModel {
         }
         let memb1Events = likedEventsByMembers[0]
         var mutualLikedEvents: [String] = []
-        for i in memb1Events {
+        if memb1Events == nil {
+            return []
+        }
+        for i in memb1Events! {
             for j in likedEventsByMembers {
-                if(j?.contains(i)){
+                if((j?.contains(i)) != nil){
                     
                 } else {
                     break
