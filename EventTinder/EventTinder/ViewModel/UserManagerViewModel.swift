@@ -35,14 +35,19 @@ final class UserManagerViewModel {
     
     func getUser(userId: String) async throws -> User {
     //uses an userID to get the data from the user. returns type struct User
-    //use: try await UserManager.shared.getUser(userId: someString)
+        //use: try await UserManager.shared.getUser(userId: someString)
         
         let snapshot = try await userDocument(userId: userId).getDocument(as: User.self)
         return snapshot
     }
     
     func searchUser(searchStr: String) async throws {
-        try await Firestore.firestore().collection("users").whereField("user_id", arrayContains: searchStr).getDocuments()
+        try await userCollection
+            .whereField("user_id", arrayContains: searchStr).getDocuments(as: User.self)
+    }
+    
+    func editUser(user: User) async throws {
+        try userDocument(userId: user.uid).setData(from: user, merge: true)
     }
     
 }
