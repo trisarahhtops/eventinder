@@ -14,4 +14,5 @@ struct Event: Identifiable, Hashable {
     let eventDescription: String
     let eventCategory: String
     var imageURLs: [String]
+    var matchedUsers: [String] // Array of matched users
 }

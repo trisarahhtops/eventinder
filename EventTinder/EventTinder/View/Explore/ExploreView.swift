@@ -18,8 +18,9 @@ struct ExploreView: View {
                 VStack(spacing: 0) {
                     HStack {
                         Text("Explore")
-                            .font(.system(.largeTitle, weight: .bold))
+                            .font(.system(.title, weight: .bold))
                             .padding(.leading)
+                            //.frame(maxWidth: .infinity, alignment: .leading)
                         Spacer()
                     }
                     TextField("Search...", text: $search, onCommit: filterEvents)
