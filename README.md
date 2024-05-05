@@ -1,6 +1,7 @@
 README
 
 **NAME AND STUDENT NUMBER** (can you guys fill this out thank you!!)
+
 Sarah Zhong | 14242150
 Amelie
 Julia
