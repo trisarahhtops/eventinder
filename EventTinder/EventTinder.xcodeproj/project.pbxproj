@@ -41,6 +41,7 @@
 		262F46992BDE654E006443FD /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F46982BDE654E006443FD /* SwipeAction.swift */; };
 		262F469C2BDE65BA006443FD /* SizeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F469B2BDE65BA006443FD /* SizeConstants.swift */; };
 		262F46A02BDE65E9006443FD /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F469F2BDE65E9006443FD /* MockData.swift */; };
+		267EFAA72BE7571900755085 /* CreateGroupProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267EFAA62BE7571900755085 /* CreateGroupProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		262F46982BDE654E006443FD /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 		262F469B2BDE65BA006443FD /* SizeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeConstants.swift; sourceTree = "<group>"; };
 		262F469F2BDE65E9006443FD /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		267EFAA62BE7571900755085 /* CreateGroupProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				18DA3AD92BD626750065F151 /* GroupView.swift */,
 				184B899A2BDC8AB300728576 /* GroupRowView.swift */,
 				184B89972BDC78D600728576 /* CreateGroupView.swift */,
+				267EFAA62BE7571900755085 /* CreateGroupProfileView.swift */,
 				184B89932BDC756700728576 /* ProfileView.swift */,
 			);
 			path = Groups;
@@ -322,6 +325,7 @@
 				184B899B2BDC8AB300728576 /* GroupRowView.swift in Sources */,
 				262F46992BDE654E006443FD /* SwipeAction.swift in Sources */,
 				18DA3ADA2BD626750065F151 /* GroupView.swift in Sources */,
+				267EFAA72BE7571900755085 /* CreateGroupProfileView.swift in Sources */,
 				184B89812BDB62B100728576 /* SignInEmailView.swift in Sources */,
 				18DA3AD82BD626550065F151 /* DecisionView.swift in Sources */,
 				262F46932BDE650B006443FD /* Event.swift in Sources */,

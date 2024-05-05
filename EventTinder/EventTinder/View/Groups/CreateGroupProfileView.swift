@@ -2,14 +2,17 @@
 //  CreateGroupProfileView.swift
 //  EventTinder
 //
-//  Created by Amelie Patzer on 27.04.24.
+//  Created by Sarah Zhong on 5/5/2024.
 //
 
 import SwiftUI
 
 struct CreateGroupProfileView: View {
     @State private var groupPicture: Image = Image(.group1)
-    
+    @State private var groupname: String = ""
+    private var smallProfileSize = UIScreen.main.bounds.width/4-24
+    private var bigProfileSize = UIScreen.main.bounds.width-50
+
     var body: some View {
         VStack{
             Text("New Group")
@@ -21,7 +24,7 @@ struct CreateGroupProfileView: View {
             Spacer()
             groupPicture
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width-40, height: UIScreen.main.bounds.width-40)
+                .frame(width: bigProfileSize, height: bigProfileSize)
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
             Spacer()
             HStack {
@@ -30,7 +33,7 @@ struct CreateGroupProfileView: View {
                 } label: {
                     Image(.group1)
                         .resizable()
-                        .frame(width: UIScreen.main.bounds.width/4-16, height: UIScreen.main.bounds.width/4-16)
+                        .frame(width: smallProfileSize, height: smallProfileSize)
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 }
                 Button {
@@ -38,7 +41,7 @@ struct CreateGroupProfileView: View {
                 } label: {
                     Image(.group2)
                         .resizable()
-                        .frame(width: UIScreen.main.bounds.width/4-16, height: UIScreen.main.bounds.width/4-16)
+                        .frame(width: smallProfileSize, height: smallProfileSize)
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 }
                 Button {
@@ -46,7 +49,7 @@ struct CreateGroupProfileView: View {
                 } label: {
                     Image(.group3)
                         .resizable()
-                        .frame(width: UIScreen.main.bounds.width/4-16, height: UIScreen.main.bounds.width/4-16)
+                        .frame(width: smallProfileSize, height: smallProfileSize)
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 }
                 Button {
@@ -54,13 +57,20 @@ struct CreateGroupProfileView: View {
                 } label: {
                     Image(.group4)
                         .resizable()
-                        .frame(width: UIScreen.main.bounds.width/4-16, height: UIScreen.main.bounds.width/4-16)
+                        .frame(width: smallProfileSize, height: smallProfileSize)
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 }
             }
             Spacer()
+            Text("Choose a group name")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.headline)
+            TextField("group name", text: $groupname)
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(10)
             NavigationLink("Create Group") {
-                
+                //TODO save groupname and create group in database
             }
             .font(.headline)
             .foregroundColor(.white)
@@ -76,3 +86,4 @@ struct CreateGroupProfileView: View {
 #Preview {
     CreateGroupProfileView()
 }
+
