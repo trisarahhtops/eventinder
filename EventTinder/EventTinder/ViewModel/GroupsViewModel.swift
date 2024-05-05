@@ -37,17 +37,18 @@ final class GroupsViewModel {
 
     }
     
-    func checkMembers(memb: [String]) async throws -> Bool {        
+    func checkMembers(memb: [String]) async throws -> Bool {
+        var allExist = true
         for i in memb {
             groupDocument(groupId: i).getDocument { (document, error) in
                 if let document = document, document.exists {
                 
                 } else {
-                    return false
+                    allExist = false
                 }
             }
         }
-        return true
+        return allExist
     }
     
     func mutualLikes(groupId: String) async throws -> [Events] {
