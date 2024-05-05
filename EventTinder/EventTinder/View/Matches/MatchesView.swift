@@ -128,8 +128,6 @@ struct EventRowView: View {
         .padding(.vertical, 8)
     }
     
-    // Remaining code remains unchanged...
-
 
 
     
