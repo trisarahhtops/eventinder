@@ -54,6 +54,6 @@ Our target audience would be individuals aged 16-40 who have a hard time decidin
 
 Canva: https://www.canva.com/design/DAGD3F43KRA/FltqUDjDzF7B279FfxCegA/edit?utm_content=DAGD3F43KRA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-**Marketing Rubric**
+**Marking Rubric**
 
 Link (Google Docs): https://docs.google.com/document/d/12b_ezMBRZynmoba5GH-C3IRWzjBXl2BI4kaQlfJdIuY/edit?usp=sharing
