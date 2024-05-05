@@ -12,7 +12,7 @@ struct EventCard: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Image(event.imageURLs.first ?? "") // Assuming imageURLs contains at least one element
+            Image(event.imageURLs.first ?? "")
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
