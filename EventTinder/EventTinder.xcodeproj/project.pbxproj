@@ -42,6 +42,9 @@
 		262F469C2BDE65BA006443FD /* SizeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F469B2BDE65BA006443FD /* SizeConstants.swift */; };
 		262F46A02BDE65E9006443FD /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F469F2BDE65E9006443FD /* MockData.swift */; };
 		267EFAA72BE7571900755085 /* CreateGroupProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267EFAA62BE7571900755085 /* CreateGroupProfileView.swift */; };
+		267EFAAA2BE7858700755085 /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267EFAA92BE7858700755085 /* EventCard.swift */; };
+		267EFAAC2BE785A200755085 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267EFAAB2BE785A200755085 /* EventView.swift */; };
+		267EFAAE2BE785B400755085 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267EFAAD2BE785B400755085 /* CategoryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		262F469B2BDE65BA006443FD /* SizeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeConstants.swift; sourceTree = "<group>"; };
 		262F469F2BDE65E9006443FD /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		267EFAA62BE7571900755085 /* CreateGroupProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupProfileView.swift; sourceTree = "<group>"; };
+		267EFAA92BE7858700755085 /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
+		267EFAAB2BE785A200755085 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		267EFAAD2BE785B400755085 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,9 +169,9 @@
 		18DA3AD42BD6258A0065F151 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				267EFAA82BE782ED00755085 /* Explore */,
 				18DA3AC82BD5ECB50065F151 /* ContentView.swift */,
 				184B898E2BDB663900728576 /* Authentification */,
-				18DA3ADB2BD626A30065F151 /* ExploreView.swift */,
 				184B89992BDC8A4600728576 /* Groups */,
 				262F46612BDCEB05006443FD /* Decisions */,
 				18DA3ADD2BD626BD0065F151 /* MatchesView.swift */,
@@ -235,6 +241,17 @@
 				262F469F2BDE65E9006443FD /* MockData.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		267EFAA82BE782ED00755085 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				18DA3ADB2BD626A30065F151 /* ExploreView.swift */,
+				267EFAAD2BE785B400755085 /* CategoryButton.swift */,
+				267EFAA92BE7858700755085 /* EventCard.swift */,
+				267EFAAB2BE785A200755085 /* EventView.swift */,
+			);
+			path = Explore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,16 +337,19 @@
 				18DA3AC92BD5ECB50065F151 /* ContentView.swift in Sources */,
 				18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */,
 				184B89982BDC78D600728576 /* CreateGroupView.swift in Sources */,
+				267EFAAA2BE7858700755085 /* EventCard.swift in Sources */,
 				184B899D2BDCB0B700728576 /* Group.swift in Sources */,
 				262F46A02BDE65E9006443FD /* MockData.swift in Sources */,
 				184B899B2BDC8AB300728576 /* GroupRowView.swift in Sources */,
 				262F46992BDE654E006443FD /* SwipeAction.swift in Sources */,
+				267EFAAE2BE785B400755085 /* CategoryButton.swift in Sources */,
 				18DA3ADA2BD626750065F151 /* GroupView.swift in Sources */,
 				267EFAA72BE7571900755085 /* CreateGroupProfileView.swift in Sources */,
 				184B89812BDB62B100728576 /* SignInEmailView.swift in Sources */,
 				18DA3AD82BD626550065F151 /* DecisionView.swift in Sources */,
 				262F46932BDE650B006443FD /* Event.swift in Sources */,
 				184B89922BDC71CD00728576 /* AuthentificationManagerViewModel.swift in Sources */,
+				267EFAAC2BE785A200755085 /* EventView.swift in Sources */,
 				184B89962BDC75D600728576 /* ProfileViewModel.swift in Sources */,
 				262F468C2BDE6490006443FD /* ImageIndicatorView.swift in Sources */,
 				18DA3ADE2BD626BD0065F151 /* MatchesView.swift in Sources */,
