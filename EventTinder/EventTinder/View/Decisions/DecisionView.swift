@@ -12,43 +12,44 @@ struct DecisionView: View {
     @State private var xOffset: CGFloat = 0
     @State private var degrees: Double = 0
     
-    @State private var currentImageIndex = 1 //might delete later
+    @State private var currentImageIndex = 0 //might delete later
     
     let model: DecisionModel
     
     var body: some View {
-        ZStack(alignment: .bottom){
-            ZStack(alignment: .top){
+        VStack {
+            ZStack(alignment: .bottom){
+                //ZStack(alignment: .top){
                 Image(model.event.imageURLs[currentImageIndex]) //delete later
-                //Image(.cafe) this is without the imagescroll
-                    .resizable()
-                    .scaledToFill()
-                    .overlay { //delete later
-                        ImageScrollOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
-                    }
-                    .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    //Image(.cafe) this is without the imagescroll
+                        .resizable()
+                        .scaledToFill()
+                        /*.overlay { //delete later
+                            ImageScrollOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
+                        }*/
+                        .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                    
+                    /*ImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: imageCount) //Delete later*/
+                    
+                    SwipeView(xOffset: $xOffset, screenCutoff: SizeConstants.screenCutoff)
+                //}
+                    
                 
-                ImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: imageCount) //Delete later
+                EventInfoView(event: event)
                 
-                SwipeView(xOffset: $xOffset, screenCutoff: SizeConstants.screenCutoff)
             }
-                
-            
-            EventInfoView(event: event)
-            /*VStack {
-                Spacer()
-                SwipeButtonView(viewModel: viewModel)
-                    //.padding(.bottom, 100) // Adjust the padding as needed
-            }
-            .padding(.horizontal)*/
-            
+            Spacer()
+            SwipeButtonView(viewModel: viewModel)
+                //.padding(.bottom, 100) // Adjust the padding as needed
         }
+        .padding(.horizontal)
+        
         
         .onReceive(viewModel.$buttonSwipeAction, perform: { action in
             onReceiveSwipeAction(action: action)
         })
-        .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
+        //.frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .offset(x: xOffset)
         .rotationEffect(.degrees(degrees))
@@ -94,7 +95,7 @@ private extension DecisionView {
             xOffset = -500
             degrees = -12
         } completion: {
-            viewModel.removeDecision(model)
+            viewModel.removeDecision(viewModel.decisionModel)
         }
     }
     func onReceiveSwipeAction( action: SwipeAction?){

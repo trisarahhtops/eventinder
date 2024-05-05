@@ -10,16 +10,11 @@ import SwiftUI
 struct CardStackView: View {
     @StateObject var viewModel = DecisionViewModel(service: DecisionService())
     var body: some View {
-        VStack {
             ZStack {
                 ForEach(viewModel.decisionModels) { decision in
                     DecisionView(viewModel: viewModel, model: decision)
                 }
             }
-            if viewModel.decisionModels.isEmpty {
-                SwipeButtonView(viewModel: viewModel)
-            }
-        }
     }
 }
 

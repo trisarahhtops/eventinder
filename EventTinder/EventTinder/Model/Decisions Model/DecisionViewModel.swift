@@ -9,8 +9,9 @@ import Foundation
 
 @MainActor
 class DecisionViewModel: ObservableObject {
-    @Published var decisionModels = [DecisionModel]()
+    @Published var decisionModels = [DecisionModel(event: MockData.events[1]), DecisionModel(event: MockData.events[2])]
     @Published var buttonSwipeAction: SwipeAction?
+    @Published var decisionModel = DecisionModel(event: MockData.events[1])
     
         private let service: DecisionService
     

@@ -24,18 +24,18 @@ struct ContentView: View {
                             .tabItem {
                                 Label("groups", systemImage: "person.3.fill")
                             }.tag(1)
-                        VStack { //There is an issue with the viewing right now
-                            CardStackView(viewModel: viewModel)
-                            SwipeButtonView(viewModel: viewModel)
-                        }
-                        DecisionView()
+                        CardStackView()
+                        .tabItem {
+                            Label("decisions", systemImage: "hand.draw.fill")
+                        }.tag(2)
+                        CardStackView()
                             .tabItem {
                                 Label("decisions", systemImage: "hand.draw.fill")
                             }.tag(2)
                         MatchesView()
                             .tabItem {
                                 Label("matches", systemImage: "equal.circle.fill")
-                            }.tag(2)
+                            }.tag(3)
                     }
                 }
             }
