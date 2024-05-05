@@ -1,5 +1,11 @@
 README
 
+**NAME AND STUDENT NUMBER** (can you guys fill this out thank you!!)
+Sarah Zhong | 14242150
+Amelie
+Julia
+
+
 **Problem** 
 
 Not knowing what to do and being bored by the options seen in a list as well as having a hard time selecting something with a friend
