@@ -9,11 +9,13 @@ import Foundation
 
 struct MockData {
     static let events: [Event] = [
-        Event(id: "1", eventName: "Event 1", eventDate: "2024-04-28", eventDescription: "Description 1", imageURLs: ["Cafe", "Hike"]),
-        Event(id: "2", eventName: "Event 2", eventDate: "2024-04-29", eventDescription: "Description 2", imageURLs: ["Bar", "Hike"]),
-                // Add more events as needed
-            ]
-        }
+        Event(id: "0", eventName: "Event 1", eventDate: "2024-04-28", eventDescription: "Description 1", eventCategory: "Food", imageURLs: ["Cafe", "Hike"]),
+        Event(id: "1", eventName: "Event 2", eventDate: "2024-04-29", eventDescription: "Description 2", eventCategory: "Music", imageURLs: ["Bar", "Hike"]),
+        Event(id: "2", eventName: "Event 3", eventDate: "2024-04-30", eventDescription: "Description 3", eventCategory: "Sport", imageURLs: ["Hike", "Cafe"]),
+        Event(id: "3", eventName: "Event 4", eventDate: "2024-05-01", eventDescription: "Description 4", eventCategory: "Sport", imageURLs: ["Bar", "Bar"]),
+        // Add more events as needed
+    ]
+}
 
         /*.init(
             id: NSUUID().uuidString,

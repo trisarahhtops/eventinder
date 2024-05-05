@@ -12,5 +12,6 @@ struct Event: Identifiable, Hashable {
     let eventName: String
     let eventDate: String
     let eventDescription: String
+    let eventCategory: String
     var imageURLs: [String]
 }
