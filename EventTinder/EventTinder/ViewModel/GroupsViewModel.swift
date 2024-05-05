@@ -37,12 +37,17 @@ final class GroupsViewModel {
 
     }
     
-    func checkMembers(memb: [String]) async throws -> Bool {
-        
+    func checkMembers(memb: [String]) async throws -> Bool {        
         for i in memb {
-            //check if user exists!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //Firestore.firestore().collection("users")
+            groupDocument(groupId: i).getDocument { (document, error) in
+                if let document = document, document.exists {
+                
+                } else {
+                    return false
+                }
+            }
         }
+        return true
     }
     
     func mutualLikes(groupId: String) async throws -> [Events] {
