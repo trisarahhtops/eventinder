@@ -1,6 +1,6 @@
 README
 
-**NAME AND STUDENT NUMBER** (can you guys fill this out thank you!!)
+**NAME AND STUDENT NUMBER**
 
 Sarah Zhong | 14242150
 
