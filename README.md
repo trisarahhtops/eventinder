@@ -45,7 +45,7 @@ Our target audience would be individuals aged 16-40 who have a hard time decidin
   -> see Group Matches
   
 **ToDos until next Week**
-- Matches Screen, Explore Screen (Sarah)
+- Matches Screen, Explore Screen (Sarah) -> Instead of MatchesView we would have when you click on group it would show the events that have been matched: Group ID returns Event ID in the array
 - Group Picture Screen (Amelie)
 - Eventbrite Authentication (Amelie)
 - Connecting people in groups (Firebase) (Julia)
