@@ -4,7 +4,7 @@ README
 
 Sarah Zhong | 14242150
 
-Amelie
+Amelie Patzer | 24859163
 
 Julia Sofie Eisele | 25059991
 
