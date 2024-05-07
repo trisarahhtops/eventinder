@@ -6,7 +6,7 @@ Sarah Zhong | 14242150
 
 Amelie Patzer | 24859163
 
-Julia
+Julia Sofie Eisele | 25059991
 
 
 **Problem** 
@@ -52,6 +52,7 @@ Our target audience would be individuals aged 16-40 who have a hard time decidin
 - liking events (Firebase) (Julia)
 - get events from eventbrite API
 - start presentation (Sarah)
+
 
 
 **Other things**
