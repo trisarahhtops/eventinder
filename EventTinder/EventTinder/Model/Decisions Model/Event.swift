@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Event: Identifiable, Hashable {
+struct Event: Identifiable, Hashable, Equatable {
     let id: String
     let eventName: String
     let eventDate: String
@@ -15,3 +15,8 @@ struct Event: Identifiable, Hashable {
     let eventCategory: String
     var imageURLs: [String]
 }
+
+
+
+
+
