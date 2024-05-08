@@ -6,17 +6,90 @@
 //
 
 import Foundation
+import SwiftUI
 
 class EventbriteAPIManagerViewModel: ObservableObject {
     @Published var eventData: EventData?
     
     let eventbriteURL = "https://www.eventbriteapi.com/v3/"
-    let APIKey = "MSFWRMCLMXKPJC3SHTGB"
-    let token = ""
+    let APIKey = "P7GBWMC6VXGVPRUT74"
+    let clientSecret = "ZUBBMJILT3NTONKZAUNQJRZFZZIO63JZOZK2UOCAZLIANUJF4F"
+    let redirectURI = "http://localhost:8080/oauth/redirect"
+    var accessToken: String?
+    
+    func authorizeUser(completion: @escaping (Bool) -> Void) {
+        let authorizationURL = "https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=\(APIKey)&redirect_uri=\(redirectURI)"
+        guard let url = URL(string: authorizationURL) else {
+            print("Invalid authorization URL")
+            completion(false)
+            return
+        }
+        
+        // Open URL in Safari or use SFSafariViewController to open within the app
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url) { success in
+                if success {
+                    print("Opened authorization URL successfully")
+                } else {
+                    print("Failed to open authorization URL")
+                    completion(false)
+                }
+            }
+        } else {
+            print("Cannot open authorization URL")
+            completion(false)
+        }
+    }
+    
+    func requestAccessToken(with accessCode: String, completion: @escaping (Bool) -> Void) {
+        let url = URL(string: "https://www.eventbrite.com/oauth/token")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let postData = "grant_type=authorization_code&client_id=\(APIKey)&client_secret=\(clientSecret)&code=\(accessCode)&redirect_uri=\(redirectURI)"
+        request.httpBody = postData.data(using: .utf8)
+        
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
+                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                completion(false)
+                return
+            }
+            guard (200...299).contains(response.statusCode) else {
+                print("Status code: \(response.statusCode)")
+                completion(false)
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let accessToken = json["access_token"] as? String {
+                    self?.accessToken = accessToken
+                    completion(true)
+                } else {
+                    print("Error parsing access token")
+                    completion(false)
+                }
+            } catch {
+                print("Error parsing JSON: \(error)")
+                completion(false)
+            }
+        }
+        
+        task.resume()
+    }
     
     func fetchEvents() {
-        let urlString = "\(eventbriteURL)events/search/?token=\(token)"
-        performRequest(urlString: urlString)
+        authorizeUser { [weak self] success in
+            guard success else {
+                print("Failed to authorize user")
+                return
+            }
+            guard let accessToken = self?.accessToken else {
+                print("Access token is nil")
+                return
+            }
+            let urlString = "\(self?.eventbriteURL ?? "")events/search/?token=\(accessToken)"
+            self?.performRequest(urlString: urlString)
+        }
     }
     
     func performRequest(urlString: String) {
