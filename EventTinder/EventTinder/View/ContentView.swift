@@ -28,7 +28,7 @@ struct ContentView: View {
                             .tabItem {
                                 Label("decisions", systemImage: "hand.draw.fill")
                             }.tag(2)
-                        MatchesView()
+                        MatchView()
                             .tabItem {
                                 Label("matches", systemImage: "equal.circle.fill")
                             }.tag(3)
