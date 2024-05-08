@@ -1,4 +1,7 @@
 README
+**EventTinder GitHub Link**
+
+- https://github.com/trisarahhtops/eventinder
 
 **NAME AND STUDENT NUMBER**
 
