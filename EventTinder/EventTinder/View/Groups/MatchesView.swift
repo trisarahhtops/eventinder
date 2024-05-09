@@ -8,29 +8,23 @@
 import SwiftUI
 
 struct MatchesView: View {
-    let groupId: String = "5"
-    @State var matches: [String] = ["1","4"]
-    let groupName: String = "Test"
+    let groupId: String
     
+    @State private var viewModel: MatchesViewModel
     
-    init(groupId: String) async{
+    init(groupId: String) {
         self.groupId = groupId
-        do{
-            self.matches = try await GroupsViewModel.shared.mutualLikes(groupId: groupId)
-        } catch {
-            self.matches = []
-            print("Problem with getting matches")
-        }
-        self.groupName = await GroupsViewModel.shared.getGroupName(groupId: groupId)
+        viewModel = MatchesViewModel(groupId: groupId)
+        
     }
     
     var body: some View {
-        Text("Matches of Group \(groupName)")
+        Text("Matches of Group \(viewModel.groupName)")
             .font(.title)
             .bold()
         Spacer()
         
-        List(matches, id: \.self) { match in
+        List(viewModel.matches, id: \.self) { match in
             MatchesRowView(id: match)
         }
     }

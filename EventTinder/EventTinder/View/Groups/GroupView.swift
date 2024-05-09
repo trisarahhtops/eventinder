@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct GroupView: View {
     @Binding var showSignInView: Bool
     // TODO change to list of groups of user from database
-    @State var groups: [Group] = [Group(), Group(), Group(), Group(), Group()]
+    @State private var viewModel: GroupViewModel = GroupViewModel()
+
     
     var body: some View {
         VStack {
@@ -51,8 +53,12 @@ struct GroupView: View {
             }
             .padding()
             
-            List(groups, id: \.id) { group in
-                GroupRowView(group: group)
+            List(viewModel.groups, id: \.gid) { group in
+                NavigationLink{
+                    MatchesView(groupId: group.gid)
+                } label: {
+                    GroupRowView(group: group)
+                }
             }
             .scrollContentBackground(.hidden)
             .listStyle(PlainListStyle())
@@ -61,8 +67,10 @@ struct GroupView: View {
     }
 }
 
+/*
 #Preview {
     NavigationStack {
         GroupView(showSignInView: .constant(false))
     }
 }
+*/
