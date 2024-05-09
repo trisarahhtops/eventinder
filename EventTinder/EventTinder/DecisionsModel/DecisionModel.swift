@@ -10,7 +10,8 @@ struct DecisionModel {
     let event: Event
 }
 
+/*
 extension DecisionModel: Identifiable, Hashable {
     var id: String { return event.id }
 }
-
+*/

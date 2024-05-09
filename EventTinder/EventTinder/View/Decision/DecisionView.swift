@@ -14,12 +14,12 @@ struct DecisionView: View {
     
     @State private var currentImageIndex = 1 //might delete later
     
-    let model: DecisionModel
+    //let model: DecisionModel
     
     var body: some View {
         ZStack(alignment: .bottom){
             ZStack(alignment: .top){
-                Image(model.event.imageURLs[currentImageIndex]) //delete later
+                Image(viewModel.decisionModels[0].event.imageURLs[currentImageIndex]) //delete later
                 //Image(.cafe) this is without the imagescroll
                     .resizable()
                     .scaledToFill()
@@ -67,7 +67,7 @@ struct DecisionView: View {
 
 private extension DecisionView {
     var event: Event {
-        return model.event
+        return viewModel.decisionModels[0].event
     }
     
     var imageCount: Int {
@@ -85,7 +85,7 @@ private extension DecisionView {
             xOffset = 500
             degrees = 12
         } completion: {
-            viewModel.removeDecision(model)
+            viewModel.removeDecision(viewModel.decisionModels[0])
         }
     }
     
@@ -94,7 +94,7 @@ private extension DecisionView {
             xOffset = -500
             degrees = -12
         } completion: {
-            viewModel.removeDecision(model)
+            viewModel.removeDecision(viewModel.decisionModels[0])
         }
     }
     func onReceiveSwipeAction( action: SwipeAction?){
@@ -102,7 +102,7 @@ private extension DecisionView {
         
         let topDecision = viewModel.decisionModels.last
         
-        if topDecision == model {
+        if topDecision == viewModel.decisionModels[0] {
             switch action {
             case .reject:
                 swipeLeft()
@@ -147,5 +147,5 @@ private extension CardView {
 }*/
 
 #Preview {
-    DecisionView(viewModel: DecisionViewModel(), model: DecisionModel(event: MockData.events[1]))
+    DecisionView(viewModel: DecisionViewModel())
 }
