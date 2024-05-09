@@ -9,13 +9,12 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct User: Codable {
+struct UserDB: Codable {
     let uid: String
     let email: String?
     let photoURL: String?
     let eventIds: [String]?
 }
-
 
 final class UserManagerViewModel {
     static let shared = UserManagerViewModel()
@@ -26,7 +25,7 @@ final class UserManagerViewModel {
         userCollection.document(userId)
     }
     
-    func createNewUser(user: User) async throws{
+    func createNewUser(user: UserDB) async throws{
     //use to add a user to the database:
         //let user = User(userId: someString, email: optionalString, photoURL: optionalString, eventIds: optionalArray)
         //UserManager.shared.createnewUser(user: user)
@@ -34,17 +33,17 @@ final class UserManagerViewModel {
         try userDocument(userId: user.uid).setData(from: user, merge: false)
     }
     
-    func getUser(userId: String) async throws -> User {
+    func getUser(userId: String) async throws -> UserDB {
     //uses an userID to get the data from the user. returns type struct User
         //use: try await UserManager.shared.getUser(userId: someString)
         
-        let snapshot = try await userDocument(userId: userId).getDocument(as: User.self)
+        let snapshot = try await userDocument(userId: userId).getDocument(as: UserDB.self)
         return snapshot
     }
     
 
     
-    func editUser(user: User) async throws {
+    func editUser(user: UserDB) async throws {
         try userDocument(userId: user.uid).setData(from: user, merge: true)
     }
     
