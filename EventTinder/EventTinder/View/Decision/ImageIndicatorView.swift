@@ -33,7 +33,7 @@ private extension ImageIndicatorView {
 }
 
 #Preview {
-    ImageIndicatorView(currentImageIndex: 1, imageCount: 9)
+    ImageIndicatorView(currentImageIndex: 0, imageCount: 9)
         .preferredColorScheme(.dark)
 }
 

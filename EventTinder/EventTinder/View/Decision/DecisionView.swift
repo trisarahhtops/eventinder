@@ -12,7 +12,7 @@ struct DecisionView: View {
     @State private var xOffset: CGFloat = 0
     @State private var degrees: Double = 0
     
-    @State private var currentImageIndex = 1 //might delete later
+    @State private var currentImageIndex = 0 //might delete later
     
     let model: DecisionModel
     
