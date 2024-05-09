@@ -82,6 +82,15 @@ final class GroupsViewModel {
         }
     }
     
+    func getGroupName(groupId: String) async -> String {
+        do{
+            let name = try  await groupDocument(groupId: groupId).getDocument(as: group.self).name
+            return name
+        } catch {
+            return "no group name found"
+        }
+    }
+    
     func mutualLikes(groupId: String) async throws -> [String] {
         var likedEventsByMembers: [[String]?] = []
         for i in try await groupDocument(groupId: groupId).getDocument(as: group.self).members {

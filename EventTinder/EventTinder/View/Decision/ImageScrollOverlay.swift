@@ -40,6 +40,6 @@ private extension ImageScrollOverlay {
 }
 
 #Preview {
-    ImageScrollOverlay(currentImageIndex: .constant(1), imageCount: 2)
+    ImageScrollOverlay(currentImageIndex: .constant(0), imageCount: 2)
 }
 
