@@ -36,7 +36,7 @@ struct GroupView: View {
             
             NavigationStack {
                 NavigationLink {
-                    CreateGroupView(isSelected: false)
+                    CreateGroupView()
                 } label: {
                     Text("Create new group")
                         .font(.headline)

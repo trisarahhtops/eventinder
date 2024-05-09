@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct CreateGroupView: View {
-    // TODO change to friends of a person from a database
-    private let names = ["Holly", "Josh", "Rhonda", "Ted"]
-    // TODO add a selection variable for every single friend and change isSelected to a variable catching whether there is a selection at all
-    @State var isSelected: Bool
+    @ObservedObject var viewModel = CreateGroupViewModel();
     @State private var searchText = ""
     
     var body: some View {
@@ -23,11 +20,11 @@ struct CreateGroupView: View {
                 .padding()
             NavigationStack {
                 List {
-                    ForEach(searchResults, id: \.self) { name in
+                    ForEach(searchResults.indices, id: \.self) { index in
                         HStack {
-                            Text(name)
+                            Text("\(searchResults[index].username)")
                             Spacer()
-                            Toggle("add", isOn: $isSelected)
+                            Toggle("add", isOn: $viewModel.friends[index].isSelected)
                                 .toggleStyle(.button)
                         }
                     }
@@ -39,7 +36,7 @@ struct CreateGroupView: View {
             NavigationLink("select groupname") {
                 CreateGroupProfileView()
             }
-            .disabled(!isSelected)
+            .disabled(!viewModel.isSelected)
             .font(.headline)
             .foregroundColor(.white)
             .frame(height: 55)
@@ -50,15 +47,15 @@ struct CreateGroupView: View {
         }
     }
     
-    var searchResults: [String] {
+    var searchResults: [Friend] {
         if searchText.isEmpty {
-            return names
+            return viewModel.friends
         } else {
-            return names.filter { $0.contains(searchText) }
+            return viewModel.friends.filter { $0.username.contains(searchText) }
         }
     }
 }
 
 #Preview {
-    CreateGroupView(isSelected: false)
+    CreateGroupView()
 }

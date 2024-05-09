@@ -16,6 +16,9 @@ struct ProfileView: View {
             Text("Profile")
                 .font(.title)
                 .bold()
+            Text("\($viewModel.username)")
+                .font(.headline)
+                .bold()
             List {
                 Section {
                     Button("Log Out") {
