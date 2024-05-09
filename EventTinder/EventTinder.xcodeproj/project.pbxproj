@@ -11,8 +11,8 @@
 		183F5FE42BEB2DEE00D3C73A /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F5FE32BEB2DEE00D3C73A /* EventCard.swift */; };
 		183F5FE62BEB2E0D00D3C73A /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F5FE52BEB2E0D00D3C73A /* CategoryButton.swift */; };
 		183F5FE92BEB2EA000D3C73A /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F5FE82BEB2EA000D3C73A /* MockData.swift */; };
-		183F5FEC2BEC871500D3C73A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F5FEB2BEC871500D3C73A /* Friend.swift */; };
-		183F5FEE2BEC877400D3C73A /* CreateGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F5FED2BEC877400D3C73A /* CreateGroupViewModel.swift */; };
+		183F5FF02BEC98C800D3C73A /* CreateGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F5FEF2BEC98C800D3C73A /* CreateGroupViewModel.swift */; };
+		183F5FF22BEC996400D3C73A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F5FF12BEC996400D3C73A /* Friend.swift */; };
 		184B89812BDB62B100728576 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89802BDB62B100728576 /* SignInEmailView.swift */; };
 		184B89832BDB63E400728576 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 184B89822BDB63E400728576 /* GoogleService-Info.plist */; };
 		184B898D2BDB663200728576 /* AuthentificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B898C2BDB663200728576 /* AuthentificationView.swift */; };
@@ -59,8 +59,8 @@
 		183F5FE32BEB2DEE00D3C73A /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
 		183F5FE52BEB2E0D00D3C73A /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		183F5FE82BEB2EA000D3C73A /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
-		183F5FEB2BEC871500D3C73A /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
-		183F5FED2BEC877400D3C73A /* CreateGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewModel.swift; sourceTree = "<group>"; };
+		183F5FEF2BEC98C800D3C73A /* CreateGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewModel.swift; sourceTree = "<group>"; };
+		183F5FF12BEC996400D3C73A /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		184B89802BDB62B100728576 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
 		184B89822BDB63E400728576 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		184B898C2BDB663200728576 /* AuthentificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationView.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				184B899C2BDCB0B700728576 /* Group.swift */,
-				183F5FEB2BEC871500D3C73A /* Friend.swift */,
+				183F5FF12BEC996400D3C73A /* Friend.swift */,
 				184B89BC2BE222D000728576 /* EventData.swift */,
 			);
 			path = Model;
@@ -232,7 +232,7 @@
 				184B898F2BDB681400728576 /* SignInEmailViewModel.swift */,
 				184B89912BDC71CD00728576 /* AuthentificationManagerViewModel.swift */,
 				184B89BA2BE21B1E00728576 /* EventbriteAPIManagerViewModel.swift */,
-				183F5FED2BEC877400D3C73A /* CreateGroupViewModel.swift */,
+				183F5FEF2BEC98C800D3C73A /* CreateGroupViewModel.swift */,
 				184B89952BDC75D600728576 /* ProfileViewModel.swift */,
 				B8EDA37F2BEC92B5005773F6 /* UserManagerViewModel.swift */,
 			);
@@ -362,6 +362,7 @@
 				183F5FE92BEB2EA000D3C73A /* MockData.swift in Sources */,
 				18DA3ADA2BD626750065F151 /* GroupView.swift in Sources */,
 				B8345E3C2BEC620E00C82400 /* DecisionService.swift in Sources */,
+				183F5FF22BEC996400D3C73A /* Friend.swift in Sources */,
 				184B89812BDB62B100728576 /* SignInEmailView.swift in Sources */,
 				184B89922BDC71CD00728576 /* AuthentificationManagerViewModel.swift in Sources */,
 				184B89962BDC75D600728576 /* ProfileViewModel.swift in Sources */,
@@ -372,6 +373,7 @@
 				B8345E3E2BEC623B00C82400 /* EventInfoView.swift in Sources */,
 				B8EDA3862BEC9498005773F6 /* GrousViewModel.swift in Sources */,
 				B869D4302BEC7AC000D478DF /* CardStackView.swift in Sources */,
+				183F5FF02BEC98C800D3C73A /* CreateGroupViewModel.swift in Sources */,
 				B8EDA3802BEC92B5005773F6 /* UserManagerViewModel.swift in Sources */,
 				B8345E2C2BEC5BB900C82400 /* SizeConstants.swift in Sources */,
 				183F5FE62BEB2E0D00D3C73A /* CategoryButton.swift in Sources */,

@@ -24,13 +24,4 @@ class CreateGroupViewModel: ObservableObject {
         // TODO get user names or change the function
         return ["Bella", "Sarah", "Günther", "Klaus"]
     }
-    
-    /*
-    func getFriendnames() -> [String] {
-        let friendnames: [String] = []
-        for friends { friend in
-            friendnames.append(friend.username)
-        }
-        return friendnames
-    }*/
 }
