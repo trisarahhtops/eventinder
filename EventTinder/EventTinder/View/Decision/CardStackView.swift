@@ -12,11 +12,14 @@ struct CardStackView: View {
     var body: some View {
         VStack {
             ZStack {
-                ForEach(viewModel.decisionModels) { decision in
+                Text("No events left")
+                    .font(.headline)
+                ForEach(viewModel.decisionModels, id: \.self) { decision in
                     DecisionView(viewModel: viewModel, model: decision)
                 }
+                
             }
-            if viewModel.decisionModels.isEmpty {
+            if !viewModel.decisionModels.isEmpty {
                 SwipeButtonView(viewModel: viewModel)
             }
         }

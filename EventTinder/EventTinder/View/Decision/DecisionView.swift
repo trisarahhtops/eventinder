@@ -8,57 +8,59 @@
 import SwiftUI
 
 struct DecisionView: View {
-    @ObservedObject var viewModel: DecisionViewModel = DecisionViewModel()
+    @ObservedObject var viewModel: DecisionViewModel
     @State private var xOffset: CGFloat = 0
     @State private var degrees: Double = 0
     
     @State private var currentImageIndex = 1 //might delete later
     
-    //let model: DecisionModel
+    let model: DecisionModel
     
     var body: some View {
-        ZStack(alignment: .bottom){
-            ZStack(alignment: .top){
-                Image(viewModel.decisionModels[0].event.imageURLs[currentImageIndex]) //delete later
-                //Image(.cafe) this is without the imagescroll
-                    .resizable()
-                    .scaledToFill()
-                    .overlay { //delete later
-                        ImageScrollOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
-                    }
-                    .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+        VStack{
+            ZStack(alignment: .bottom){
+                ZStack(alignment: .top){
+                    Image(model.event.imageURLs[currentImageIndex]) //delete later
+                    //Image(.cafe) this is without the imagescroll
+                        .resizable()
+                        .scaledToFill()
+                        .overlay { //delete later
+                            ImageScrollOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
+                        }
+                        .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                    
+                    ImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: imageCount) //Delete later
+                    
+                    SwipeView(xOffset: $xOffset, screenCutoff: SizeConstants.screenCutoff)
+                }
                 
-                ImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: imageCount) //Delete later
                 
-                SwipeView(xOffset: $xOffset, screenCutoff: SizeConstants.screenCutoff)
+                EventInfoView(event: event)
+                /*VStack {
+                 Spacer()
+                 SwipeButtonView(viewModel: viewModel)
+                 //.padding(.bottom, 100) // Adjust the padding as needed
+                 }
+                 .padding(.horizontal)*/
+                
             }
-                
             
-            EventInfoView(event: event)
-            /*VStack {
-                Spacer()
-                SwipeButtonView(viewModel: viewModel)
-                    //.padding(.bottom, 100) // Adjust the padding as needed
-            }
-            .padding(.horizontal)*/
-            
+            .onReceive(viewModel.$buttonSwipeAction, perform: { action in
+                onReceiveSwipeAction(action: action)
+            })
+            .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .offset(x: xOffset)
+            .rotationEffect(.degrees(degrees))
+            .animation(.snappy, value: xOffset)
+            .gesture(
+                DragGesture()
+                    .onChanged(onDragChanged)
+                    .onEnded(onDragEnded)
+            )
+            //CardStackView(viewModel: viewModel)
         }
-        
-        .onReceive(viewModel.$buttonSwipeAction, perform: { action in
-            onReceiveSwipeAction(action: action)
-        })
-        .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .offset(x: xOffset)
-        .rotationEffect(.degrees(degrees))
-        .animation(.snappy, value: xOffset)
-        .gesture(
-            DragGesture()
-                .onChanged(onDragChanged)
-                .onEnded(onDragEnded)
-        )
-        //CardStackView(viewModel: viewModel)
     }
     
 }
@@ -67,7 +69,7 @@ struct DecisionView: View {
 
 private extension DecisionView {
     var event: Event {
-        return viewModel.decisionModels[0].event
+        return model.event
     }
     
     var imageCount: Int {
@@ -85,7 +87,7 @@ private extension DecisionView {
             xOffset = 500
             degrees = 12
         } completion: {
-            viewModel.removeDecision(viewModel.decisionModels[0])
+            viewModel.removeDecision(likes: true)
         }
     }
     
@@ -94,7 +96,7 @@ private extension DecisionView {
             xOffset = -500
             degrees = -12
         } completion: {
-            viewModel.removeDecision(viewModel.decisionModels[0])
+            viewModel.removeDecision(likes: false)
         }
     }
     func onReceiveSwipeAction( action: SwipeAction?){
@@ -102,7 +104,7 @@ private extension DecisionView {
         
         let topDecision = viewModel.decisionModels.last
         
-        if topDecision == viewModel.decisionModels[0] {
+        if topDecision == model {
             switch action {
             case .reject:
                 swipeLeft()
@@ -146,6 +148,8 @@ private extension CardView {
     }
 }*/
 
+
 #Preview {
-    DecisionView(viewModel: DecisionViewModel())
+    DecisionView(viewModel: DecisionViewModel(), model: DecisionModel(event: MockData.events[0]))
 }
+

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct DecisionModel {
+struct DecisionModel: Hashable{
     let event: Event
 }
 

@@ -45,6 +45,7 @@
 		B8345E342BEC5C6400C82400 /* ImageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8345E332BEC5C6400C82400 /* ImageIndicatorView.swift */; };
 		B8345E3C2BEC620E00C82400 /* DecisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8345E3B2BEC620E00C82400 /* DecisionService.swift */; };
 		B8345E3E2BEC623B00C82400 /* EventInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8345E3D2BEC623B00C82400 /* EventInfoView.swift */; };
+		B869D4302BEC7AC000D478DF /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B869D42F2BEC7AC000D478DF /* CardStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		B8345E332BEC5C6400C82400 /* ImageIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageIndicatorView.swift; sourceTree = "<group>"; };
 		B8345E3B2BEC620E00C82400 /* DecisionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionService.swift; sourceTree = "<group>"; };
 		B8345E3D2BEC623B00C82400 /* EventInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfoView.swift; sourceTree = "<group>"; };
+		B869D42F2BEC7AC000D478DF /* CardStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 		B8345E2A2BEC5B1F00C82400 /* Decision */ = {
 			isa = PBXGroup;
 			children = (
+				B869D42F2BEC7AC000D478DF /* CardStackView.swift */,
 				B8345E1F2BEC591700C82400 /* DecisionView.swift */,
 				B8345E3B2BEC620E00C82400 /* DecisionService.swift */,
 				B8345E3D2BEC623B00C82400 /* EventInfoView.swift */,
@@ -349,6 +352,7 @@
 				184B89902BDB681400728576 /* SignInEmailViewModel.swift in Sources */,
 				18DA3ADC2BD626A30065F151 /* ExploreView.swift in Sources */,
 				B8345E3E2BEC623B00C82400 /* EventInfoView.swift in Sources */,
+				B869D4302BEC7AC000D478DF /* CardStackView.swift in Sources */,
 				B8345E2C2BEC5BB900C82400 /* SizeConstants.swift in Sources */,
 				183F5FE62BEB2E0D00D3C73A /* CategoryButton.swift in Sources */,
 				B8345E232BEC59B000C82400 /* DecisionViewModel.swift in Sources */,

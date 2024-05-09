@@ -31,8 +31,14 @@ class DecisionViewModel: ObservableObject {
         }
     }
  */
-    func removeDecision(_ decision: DecisionModel) {
+    func removeDecision(likes: Bool) {
+        /*
         guard let index = decisionModels.firstIndex(where: { $0.event.id == decision.event.id }) else { return }
         decisionModels.remove(at: index)
+         */
+        
+        //ToDo: Datenbank event geliked
+        
+        decisionModels.removeLast()
     }
 }

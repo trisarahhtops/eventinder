@@ -24,7 +24,7 @@ struct ContentView: View {
                             .tabItem {
                                 Label("groups", systemImage: "person.3.fill")
                             }.tag(1)
-                        DecisionView()
+                        CardStackView()
                             .tabItem {
                                 Label("decisions", systemImage: "hand.draw.fill")
                             }.tag(2)
