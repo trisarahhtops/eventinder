@@ -12,8 +12,8 @@ import FirebaseFirestoreSwift
 struct group: Codable {
     let gid: String
     let members: [String]
-    let name: String
-    let pic: String
+    var name: String
+    var pic: String
 }
 
 final class GroupsViewModel {

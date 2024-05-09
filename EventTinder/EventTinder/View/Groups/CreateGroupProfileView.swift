@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct CreateGroupProfileView: View {
-    @State private var groupPicture: Image = Image(.group1)
+    var friends: [String]
+    @State private var groupPicture: String = "group1"
     @State private var groupname: String = ""
     private var smallProfileSize = UIScreen.main.bounds.width/4-24
     private var bigProfileSize = UIScreen.main.bounds.width-50
+    @Binding var showSignInView: Bool
 
+    public init(friends: [String], showSignInView: Binding<Bool>) {
+        self.friends = friends
+        // TODO get username from database
+        var myUsername = "Anna"
+        self.friends.append(myUsername)
+        self._showSignInView = showSignInView
+    }
+    
     var body: some View {
         VStack{
             Text("New Group")
@@ -22,14 +32,14 @@ struct CreateGroupProfileView: View {
             Text("Choose a group picture")
                 .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
-            groupPicture
+            Image(groupPicture, label: Text("Grouppicture"))
                 .resizable()
                 .frame(width: bigProfileSize, height: bigProfileSize)
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
             Spacer()
             HStack {
                 Button {
-                    groupPicture = Image(.group1)
+                    groupPicture = "group1"
                 } label: {
                     Image(.group1)
                         .resizable()
@@ -37,7 +47,7 @@ struct CreateGroupProfileView: View {
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 }
                 Button {
-                    groupPicture = Image(.group2)
+                    groupPicture = "group2"
                 } label: {
                     Image(.group2)
                         .resizable()
@@ -45,7 +55,7 @@ struct CreateGroupProfileView: View {
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 }
                 Button {
-                    groupPicture = Image(.group3)
+                    groupPicture = "group3"
                 } label: {
                     Image(.group3)
                         .resizable()
@@ -53,7 +63,7 @@ struct CreateGroupProfileView: View {
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 }
                 Button {
-                    groupPicture = Image(.group4)
+                    groupPicture = "group4"
                 } label: {
                     Image(.group4)
                         .resizable()
@@ -69,8 +79,17 @@ struct CreateGroupProfileView: View {
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
-            NavigationLink("Create Group") {
-                //TODO save groupname and create group in database
+                .onSubmit {
+                    Task {
+                            do {
+                                try await GroupsViewModel.shared.createNewGroup(group: group(gid: "someID", members: self.friends, name: self.groupname, pic: self.groupPicture))
+                            } catch {
+                                print("Error while creating a new group: \(error)")
+                            }
+                        }
+                }
+            NavigationLink("Create Group"/*, destination: GroupView(showSignInView: $showSignInView)*/) {
+                GroupView(showSignInView: $showSignInView)
             }
             .font(.headline)
             .foregroundColor(.white)
@@ -83,6 +102,8 @@ struct CreateGroupProfileView: View {
     }
 }
 
+/*
 #Preview {
-    CreateGroupProfileView()
+    CreateGroupProfileView(friends: ["Klaus", "Günther", "Peter"], showSignInView: Binding<false>)
 }
+*/

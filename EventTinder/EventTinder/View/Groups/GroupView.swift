@@ -36,7 +36,7 @@ struct GroupView: View {
             
             NavigationStack {
                 NavigationLink {
-                    CreateGroupView()
+                    CreateGroupView(showSignInView: $showSignInView)
                 } label: {
                     Text("Create new group")
                         .font(.headline)
@@ -51,6 +51,7 @@ struct GroupView: View {
             }
             .padding()
             
+            // List of groups
             List(groups, id: \.id) { group in
                 GroupRowView(group: group)
             }
