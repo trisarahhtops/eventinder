@@ -51,4 +51,20 @@ final class UserManagerViewModel {
         userDocument(userId: userId).updateData(["eventIds": FieldValue.arrayUnion([eventId])])
     }
     
+    func getAllUsernames(completion: @escaping ([String]?, Error?) -> Void) -> [String] {
+        var userIds: [String] = []
+        
+        userCollection.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(nil, error)
+            } else {
+                for document in querySnapshot!.documents {
+                    let userId = document.documentID
+                    userIds.append(userId)
+                }
+                completion(userIds, nil)
+            }
+        }
+        return userIds
+    }
 }
