@@ -28,7 +28,6 @@ struct SwipeButtonView: View {
             
             Button {
                 viewModel.buttonSwipeAction = .like
-                //HIER USERLIKESEVENT(Auth.auth().currentUser, )
             } label: {
                 Image(systemName: "heart.fill")
                     .fontWeight(.heavy)

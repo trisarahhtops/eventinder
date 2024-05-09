@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 @MainActor
 class DecisionViewModel: ObservableObject {
@@ -38,7 +39,9 @@ class DecisionViewModel: ObservableObject {
          */
         
         //ToDo: Datenbank event geliked
-        
+        if(likes){
+            UserManagerViewModel.shared.userLikesEvent(userId: Auth.auth().currentUser!.uid, eventId: decisionModels.last!.event.id)
+        }
         decisionModels.removeLast()
     }
 }
