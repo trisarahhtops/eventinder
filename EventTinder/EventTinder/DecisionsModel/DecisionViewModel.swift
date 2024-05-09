@@ -12,10 +12,10 @@ class DecisionViewModel: ObservableObject {
     @Published var decisionModels = [DecisionModel]()
     @Published var buttonSwipeAction: SwipeAction?
     
-        private let service: DecisionService
+        private let service: DecisionService = DecisionService()
     
-    init(service: DecisionService) {
-        self.service = service
+    init() {
+
         Task { await fetchDecisionModels() }
     }
     

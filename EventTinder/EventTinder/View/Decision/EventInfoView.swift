@@ -46,3 +46,4 @@ struct EventInfoView: View {
 #Preview {
     EventInfoView(event: MockData.events[1])
 }
+

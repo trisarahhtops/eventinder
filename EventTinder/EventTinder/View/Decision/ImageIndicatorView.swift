@@ -1,50 +1,39 @@
 //
-//  SwipeButtonView.swift
+//  ImageIndicatorView.swift
 //  EventTinder
 //
 //  Created by Sarah Zhong on 28/4/2024.
 //
 
+//Probably don't need this but good to have
+
 import SwiftUI
 
-struct SwipeButtonView: View {
-    @ObservedObject var viewModel: DecisionViewModel
+struct ImageIndicatorView: View {
+    
+    let currentImageIndex: Int
+    let imageCount: Int
+    
     var body: some View {
-        HStack(spacing: 32) {
-            Button {
-                viewModel.buttonSwipeAction = .reject
-            } label: {
-                Image(systemName: "xmark")
-                    .fontWeight(.heavy)
-                    .foregroundStyle(.red)
-                    .background {
-                        Circle()
-                            .fill(.white)
-                            .frame(width: 48, height: 48)
-                            .shadow(radius: 6)
-                    }
+        HStack {
+            ForEach(0 ..< imageCount, id: \.self) { index in
+                Capsule()
+                    .foregroundStyle(currentImageIndex == index ? .white : .gray)
+                    .frame(width: imageIndicatorWidth, height: 4)
+                    .padding(.top, 8)
             }
-            .frame(width: 100, height: 100)
-            
-            Button {
-                viewModel.buttonSwipeAction = .like
-            } label: {
-                Image(systemName: "heart.fill")
-                    .fontWeight(.heavy)
-                    .foregroundStyle(.green)
-                    .background {
-                        Circle()
-                            .fill(.white)
-                            .frame(width: 48, height: 48)
-                            .shadow(radius: 6)
-                    }
-            }
-            .frame(width: 100, height: 100)
         }
     }
 }
 
+private extension ImageIndicatorView {
+    var imageIndicatorWidth: CGFloat {
+        return SizeConstants.cardWidth / CGFloat(imageCount) - 28
+    }
+}
+
 #Preview {
-    SwipeButtonView(viewModel: DecisionViewModel(service: DecisionService()))
+    ImageIndicatorView(currentImageIndex: 1, imageCount: 9)
+        .preferredColorScheme(.dark)
 }
 

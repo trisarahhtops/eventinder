@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DecisionView: View {
-    @ObservedObject var viewModel: DecisionViewModel
+    @ObservedObject var viewModel: DecisionViewModel = DecisionViewModel()
     @State private var xOffset: CGFloat = 0
     @State private var degrees: Double = 0
     
@@ -147,5 +147,5 @@ private extension CardView {
 }*/
 
 #Preview {
-    DecisionView(viewModel: DecisionViewModel(service: DecisionService()), model: DecisionModel(event: MockData.events[1]))
+    DecisionView(viewModel: DecisionViewModel(), model: DecisionModel(event: MockData.events[1]))
 }
