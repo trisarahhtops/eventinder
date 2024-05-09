@@ -47,4 +47,3 @@ struct SwipeButtonView: View {
 #Preview {
     SwipeButtonView(viewModel: DecisionViewModel(service: DecisionService()))
 }
-

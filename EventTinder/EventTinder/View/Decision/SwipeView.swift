@@ -46,3 +46,4 @@ struct SwipeView: View {
 #Preview {
     SwipeView(xOffset: .constant(20), screenCutoff: -1)
 }
+
