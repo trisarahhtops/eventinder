@@ -33,18 +33,20 @@ struct SignInEmailView: View {
                 Task {
                     // tries to sign up the user and create a new account
                     do {
-                        if (!viewModel.checkUniqueUsername()){
-                            try await viewModel.signUp()
+                        try await viewModel.signUp()
+                        if viewModel.success {
                             showSignInView = false
-                            return
                         }
+                        return
                     } catch {
                         print("Error: \(error), while signing up")
                     }
                     // signs in the user if there already is an account there
                     do {
                         try await viewModel.signIn()
-                        showSignInView = false
+                        if viewModel.success {
+                            showSignInView = false
+                        }
                         return
                     } catch {
                         print("Error: \(error), while signing in")

@@ -13,34 +13,45 @@ final class SignInEmailViewModel: ObservableObject {
     @Published var password = ""
     @Published var username = ""
     @Published var userExists: Bool = false
+    @Published var success: Bool = false
     
     func signUp() async throws {
+        checkUniqueUsername()
         
-        // saves username to global UserData for further local use (profile, creategroup, etc.)
-        UserData.shared.username = username
-        
-        // save new user to database
-        let user = UserDB(uid: username, email: email, photoURL: nil, eventIds: [])
-        try await UserManagerViewModel.shared.createNewUser(user: user)
-        
-        guard !email.isEmpty, !password.isEmpty else {
-            print("No email or password found.")
-            return
+        if (!userExists) {
+            // saves username to global UserData for further local use (profile, creategroup, etc.)
+            UserData.shared.username = username
+            
+            // save new user to database
+            let user = UserDB(uid: username, email: email, photoURL: nil, eventIds: [])
+            try await UserManagerViewModel.shared.createNewUser(user: user)
+            
+            guard !email.isEmpty, !password.isEmpty else {
+                print("No email or password found.")
+                return
+            }
+            
+            try await AuthentificationViewModel.shared.createUser(email: email, password: password)
+            success = true
         }
-        
-        try await AuthentificationViewModel.shared.createUser(email: email, password: password)
     }
     
     func signIn() async throws {
-        guard !email.isEmpty, !password.isEmpty else {
-            print("No email or password found.")
-            return
-        }
+        checkUniqueUsername()
         
-        try await AuthentificationViewModel.shared.signInUser(email: email, password: password)
+        if (userExists) {
+            guard !email.isEmpty, !password.isEmpty else {
+                print("No email or password found.")
+                return
+            }
+            
+            try await AuthentificationViewModel.shared.signInUser(email: email, password: password)
+            success = true
+        }
     }
     
-    func checkUniqueUsername() -> Bool {
+    func checkUniqueUsername() {
+
         // check whether username already exists
         userExists = false
         Task {
@@ -49,11 +60,8 @@ final class SignInEmailViewModel: ObservableObject {
                 if (user == username) {
                     print("username already exists")
                     userExists = true
-                    return userExists
                 }
             }
-            return userExists
         }
-        return userExists
     }
 }
