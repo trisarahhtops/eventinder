@@ -16,14 +16,14 @@ final class SignInEmailViewModel: ObservableObject {
     @Published var success: Bool = false
     
     func signUp() async throws {
-        checkUniqueUsername()
+        try await checkUniqueUsername()
         
         if (!userExists) {
             // saves username to global UserData for further local use (profile, creategroup, etc.)
             UserData.shared.username = username
             
             // save new user to database
-            let user = UserDB(uid: username, email: email, photoURL: nil, eventIds: [])
+            let user = UserDB(uid: username, email: email, photoURL: "", eventIds: [])
             try await UserManagerViewModel.shared.createNewUser(user: user)
             
             guard !email.isEmpty, !password.isEmpty else {
@@ -33,12 +33,13 @@ final class SignInEmailViewModel: ObservableObject {
             
             try await AuthentificationViewModel.shared.createUser(email: email, password: password)
             success = true
+        } else {
+            try await signIn()
         }
     }
     
     func signIn() async throws {
-        checkUniqueUsername()
-        
+        try await checkUniqueUsername()
         if (userExists) {
             guard !email.isEmpty, !password.isEmpty else {
                 print("No email or password found.")
@@ -50,17 +51,14 @@ final class SignInEmailViewModel: ObservableObject {
         }
     }
     
-    func checkUniqueUsername() {
-
+    func checkUniqueUsername() async {
         // check whether username already exists
         userExists = false
-        Task {
-            let allUsers: [String] = await UserManagerViewModel.shared.getAllUserIds()
-            for user in allUsers {
-                if (user == username) {
-                    print("username already exists")
-                    userExists = true
-                }
+        let allUsers: [String] = await UserManagerViewModel.shared.getAllUserIds()
+        for user in allUsers {
+            if (user == username) {
+                print("username already exists")
+                userExists = true
             }
         }
     }
