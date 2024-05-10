@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct GroupRowView: View {
-    var group: Group
+    var group: group
+    @State private var viewModel: GroupRowViewModel
+
+    init(group: group) {
+        self.group = group
+        viewModel = GroupRowViewModel(groupId: group.gid)
+    }
     
     var body: some View {
         ZStack {
-            if group.notification {
+            if viewModel.numOfMatches > 0{
                 Circle()
                     .frame(width: 14, height: 14, alignment: .leading)
                     .foregroundColor(.accentColor)
@@ -20,17 +26,17 @@ struct GroupRowView: View {
                     .offset(x: (UIScreen.main.bounds.width/2 - 40))
             }
             HStack {
-                group.image
+                Image(group.pic)
                     .resizable()
                     .frame(width: 56, height: 56)
                     .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.gray.opacity(0.6))
                 VStack {
-                    Text(group.groupName)
+                    Text(group.name)
                         .font(.headline)
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("You have \(group.numberOfMatches) matches.")
+                    Text("You have \(viewModel.numOfMatches)) matches.")
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding()
@@ -39,6 +45,8 @@ struct GroupRowView: View {
     }
 }
 
+/*
 #Preview {
-    GroupRowView(group: Group())
+    GroupRowView(group: group(gid: 1, members: <#T##[String]#>, name: <#T##String#>, pic: <#T##String#>))
 }
+*/

@@ -51,7 +51,7 @@ final class UserManagerViewModel {
         userDocument(userId: userId).updateData(["eventIds": FieldValue.arrayUnion([eventId])])
     }
     
-    func getAllUsernames(completion: @escaping ([String]?, Error?) -> Void) -> [String] {
+    func helpGetAllUsernames(completion: @escaping ([String]?, Error?) -> Void){
         var userIds: [String] = []
         
         userCollection.getDocuments { (querySnapshot, error) in
@@ -65,6 +65,21 @@ final class UserManagerViewModel {
                 completion(userIds, nil)
             }
         }
-        return userIds
+    }
+    
+    func getAllUserIds() -> [String]{
+        var usernames: [String] = []
+        
+        helpGetAllUsernames{ (userIds, error) in
+            if let error = error {
+                print("Error fetching user IDs: \(error.localizedDescription)")
+            } else {
+                if let userIds = userIds {
+                    usernames.append(contentsOf: userIds)
+                }
+            }
+        }
+        
+        return usernames
     }
 }
