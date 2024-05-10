@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct GroupRowView: View {
-    var group: group
+    private var group: group
     @State private var viewModel: GroupRowViewModel
 
     init(group: group) {
         self.group = group
-        viewModel = GroupRowViewModel(groupId: group.gid)
+        self.viewModel = GroupRowViewModel(groupId: group.gid)
     }
     
     var body: some View {

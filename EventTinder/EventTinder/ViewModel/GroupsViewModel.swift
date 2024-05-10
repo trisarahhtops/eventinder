@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct group: Codable {
+struct group: Codable, Hashable {
     let gid: String
     let members: [String]
     var name: String

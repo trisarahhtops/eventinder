@@ -9,8 +9,7 @@ import SwiftUI
 
 struct GroupView: View {
     @Binding var showSignInView: Bool
-    // TODO change to list of groups of user from database
-    @State var groups: [Group] = [Group(), Group(), Group(), Group(), Group()]
+    @ObservedObject private var viewModel = GroupViewModel()
     
     var body: some View {
         VStack {
@@ -51,14 +50,22 @@ struct GroupView: View {
             }
             .padding()
             
-            // List of groups
-            List(groups, id: \.id) { group in
-                GroupRowView(group: group)
+            if (viewModel.groups.count == 0) {
+                VStack {
+                    Text("You don't have any groups yet. \nStart by creating a new group with your friends!")
+                    Spacer()
+                }
             }
-            .scrollContentBackground(.hidden)
-            .listStyle(PlainListStyle())
+            if (viewModel.groups.count > 0){
+                // List of groups
+                List(viewModel.groups, id: \.self) { group in
+                    GroupRowView(group: group)
+                }
+                .scrollContentBackground(.hidden)
+                .listStyle(PlainListStyle())
+                .padding()
+            }
         }
-        .padding()
     }
 }
 
