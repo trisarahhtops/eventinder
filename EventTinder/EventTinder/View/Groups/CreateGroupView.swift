@@ -48,9 +48,9 @@ struct CreateGroupView: View {
     
     var searchResults: [Friend] {
         if searchText.isEmpty {
-            return viewModel.friends
+            return viewModel.friends.filter { !$0.username.contains(UserData.shared.username) }
         } else {
-            return viewModel.friends.filter { $0.username.contains(searchText) }
+            return viewModel.friends.filter { $0.username.contains(searchText) && !$0.username.contains(UserData.shared.username) }
         }
     }
 }

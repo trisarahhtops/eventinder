@@ -81,17 +81,13 @@ struct CreateGroupProfileView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
             Button("Create Group") {
-                print("Task")
                 Task {
-                    print("do")
                     do {
-                        print("will add a group")
                         try await GroupsViewModel.shared.createNewGroup(members: self.friends, name: self.groupname, pic: self.groupPicture)
                         print("added a group")
                     } catch {
                         print("Error while creating a new group: \(error)")
                     }
-                    isShowingCreateGroupView = false
                 }
             }
             .font(.headline)
