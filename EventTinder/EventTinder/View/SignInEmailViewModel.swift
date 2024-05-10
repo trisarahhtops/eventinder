@@ -43,13 +43,16 @@ final class SignInEmailViewModel: ObservableObject {
     func checkUniqueUsername() -> Bool {
         // check whether username already exists
         userExists = false
-        let allUsers: [String] = UserManagerViewModel.shared.getAllUserIds()
-        for user in allUsers {
-            if (user == username) {
-                print("username already exists")
-                userExists = true
-                return userExists
+        Task {
+            let allUsers: [String] = await UserManagerViewModel.shared.getAllUserIds()
+            for user in allUsers {
+                if (user == username) {
+                    print("username already exists")
+                    userExists = true
+                    return userExists
+                }
             }
+            return userExists
         }
         return userExists
     }
