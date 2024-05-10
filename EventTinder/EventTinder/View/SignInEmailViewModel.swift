@@ -16,7 +16,7 @@ final class SignInEmailViewModel: ObservableObject {
     @Published var success: Bool = false
     
     func signUp() async throws {
-        try await checkUniqueUsername()
+        await checkUniqueUsername()
         
         if (!userExists) {
             // saves username to global UserData for further local use (profile, creategroup, etc.)
@@ -37,6 +37,9 @@ final class SignInEmailViewModel: ObservableObject {
             // if username already exists try sign in
             try await signIn()
         }
+        
+        DecisionViewModel.shared.getAllEvents()
+        print("\(DecisionViewModel.shared.decisionModels)")
     }
     
     func signIn() async throws {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DecisionView: View {
-    @ObservedObject var viewModel: DecisionViewModel
+    //@ObservedObject var viewModel: DecisionViewModel
     @State private var xOffset: CGFloat = 0
     @State private var degrees: Double = 0
     
@@ -46,7 +46,7 @@ struct DecisionView: View {
                 
             }
             
-            .onReceive(viewModel.$buttonSwipeAction, perform: { action in
+            .onReceive(DecisionViewModel.shared.$buttonSwipeAction, perform: { action in
                 onReceiveSwipeAction(action: action)
             })
             .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
@@ -87,7 +87,9 @@ private extension DecisionView {
             xOffset = 500
             degrees = 12
         } completion: {
-            viewModel.removeDecision(likes: true)
+            Task {
+                await DecisionViewModel.shared.removeDecision(likes: true)
+            }
         }
     }
     
@@ -96,20 +98,24 @@ private extension DecisionView {
             xOffset = -500
             degrees = -12
         } completion: {
-            viewModel.removeDecision(likes: false)
+            Task {
+                await DecisionViewModel.shared.removeDecision(likes: false)
+            }
         }
     }
     func onReceiveSwipeAction( action: SwipeAction?){
-        guard let action else { return }
+        guard let action = action else { return }
         
-        let topDecision = viewModel.decisionModels.last
-        
-        if topDecision == model {
-            switch action {
-            case .reject:
-                swipeLeft()
-            case .like:
-                swipeRight()
+        Task {
+            let topDecision = await DecisionViewModel.shared.decisionModels.last
+            
+            if topDecision == model {
+                switch action {
+                case .reject:
+                    swipeLeft()
+                case .like:
+                    swipeRight()
+                }
             }
         }
     }
@@ -150,6 +156,6 @@ private extension CardView {
 
 
 #Preview {
-    DecisionView(viewModel: DecisionViewModel(), model: DecisionModel(event: MockData.events[0]))
+    DecisionView(model: DecisionModel(event: MockData.events[0]))
 }
 

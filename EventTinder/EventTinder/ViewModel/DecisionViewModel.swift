@@ -10,17 +10,21 @@ import FirebaseAuth
 
 @MainActor
 class DecisionViewModel: ObservableObject {
+    static var shared = DecisionViewModel()
     @Published var decisionModels:[DecisionModel] = []
     @Published var buttonSwipeAction: SwipeAction?
     
         //private let service: DecisionService = DecisionService()
 
     init() {
+        getAllEvents()
+       // Task { await fetchDecisionModels() }
+    }
+    
+    func getAllEvents() {
         for e in MockData.events {
             decisionModels.append(DecisionModel(event: e))
         }
-
-       // Task { await fetchDecisionModels() }
     }
 
 /*

@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct CardStackView: View {
-    @StateObject var viewModel = DecisionViewModel()
+    //@StateObject var viewModel = DecisionViewModel()
     var body: some View {
         VStack {
             ZStack {
                 Text("No events left")
                     .font(.headline)
-                ForEach(viewModel.decisionModels, id: \.self) { decision in
-                    DecisionView(viewModel: viewModel, model: decision)
+                ForEach(DecisionViewModel.shared.decisionModels, id: \.self) { decision in
+                    DecisionView(model: decision)
                 }
                 
             }
-            if !viewModel.decisionModels.isEmpty {
-                SwipeButtonView(viewModel: viewModel)
+            if !DecisionViewModel.shared.decisionModels.isEmpty {
+                SwipeButtonView(viewModel: DecisionViewModel.shared)
             }
         }
     }
