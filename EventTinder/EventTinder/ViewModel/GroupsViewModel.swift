@@ -18,6 +18,7 @@ struct group: Codable, Hashable {
 
 final class GroupsViewModel {
     static let shared = GroupsViewModel()
+    private var groupcounter = 0
     
     private let groupCollection = Firestore.firestore().collection("groups")
     
@@ -25,9 +26,12 @@ final class GroupsViewModel {
         groupCollection.document(groupId)
     }
     
-    func createNewGroup(group: group) async throws {
+    func createNewGroup(members: [String], name: String, pic: String) async throws {
+        
+        let gr = group(gid: "\(groupcounter)", members: members, name: name, pic: pic)
        // if try await checkMembers(memb: group.members) {
-            try groupDocument(groupId: group.gid).setData(from: group, merge: false)
+            try groupDocument(groupId: gr.gid).setData(from: gr, merge: false)
+        groupcounter = groupcounter + 1
         /*} else {
             print("Not all members exist")
         }*/
@@ -74,12 +78,15 @@ final class GroupsViewModel {
     }
     
     func numberOfMatches(groupId: String) async -> Int {
+        /*
         do{
             let mutualLikes = try await mutualLikes(groupId: groupId)
             return mutualLikes.count
         } catch {
             return 0
         }
+         */
+        return 0
     }
     
     func getGroupName(groupId: String) async -> String {

@@ -91,7 +91,7 @@ struct CreateGroupProfileView: View {
                 Task {
                     do {
                         print("will add a group")
-                        try await GroupsViewModel.shared.createNewGroup(group: group(gid: "someID", members: self.friends, name: self.groupname, pic: self.groupPicture))
+                        try await GroupsViewModel.shared.createNewGroup(members: self.friends, name: self.groupname, pic: self.groupPicture)
                         print("added a group")
                     } catch {
                         print("Error while creating a new group: \(error)")
