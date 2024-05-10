@@ -20,16 +20,37 @@ final class GroupsViewModel {
     static let shared = GroupsViewModel()
     private var groupcounter = 0
     
+    init(){
+        howManyGroups()
+    }
+    
     private let groupCollection = Firestore.firestore().collection("groups")
     
     private func groupDocument(groupId: String) -> DocumentReference {
         groupCollection.document(groupId)
     }
     
+    func howManyGroups(){
+        Task{
+            var counter: Int = 0
+            do {
+                let querySnapshot = try await groupCollection.getDocuments()
+                for doc in querySnapshot.documents {
+                    counter += 1
+                }
+            } catch {
+                print("Error getting documents: \(error)")
+            }
+            print(counter)
+            groupcounter = counter
+        }
+    }
+    
     func createNewGroup(members: [String], name: String, pic: String) async throws {
         
         let gr = group(gid: "\(groupcounter)", members: members, name: name, pic: pic)
        // if try await checkMembers(memb: group.members) {
+        print("groupcounter: \(groupcounter)")
             try groupDocument(groupId: gr.gid).setData(from: gr, merge: false)
         groupcounter = groupcounter + 1
         /*} else {
@@ -63,30 +84,31 @@ final class GroupsViewModel {
     */
     
     func groupsOfUser(userId: String) async throws -> [group] {
+        
         var groups: [group] = []
-        let querySnapshot = try await groupCollection.whereField("members", arrayContains: userId).getDocuments()
-        for doc in querySnapshot.documents {
-            let data = doc.data()
-            let gid = data["gid"] as! String
-            let members = data["members"] as! [String]
-            let name = data["name"] as! String
-            let pic = data["pic"] as! String
-            let group = group(gid: gid, members: members, name: name, pic: pic)
-            groups.append(group)
+        do {
+          let querySnapshot = try await groupCollection.getDocuments()
+          for doc in querySnapshot.documents {
+              let data = doc.data()
+              let memb = data["members"] as! [String]
+              if memb.contains(userId){
+                  groups.append(group(gid: data["gid"] as! String, members: memb, name: data["name"] as! String, pic: data["pic"] as! String))
+              }
+          }
+        } catch {
+          print("Error getting documents: \(error)")
         }
+        print(groups)
         return groups
     }
     
     func numberOfMatches(groupId: String) async -> Int {
-        /*
         do{
             let mutualLikes = try await mutualLikes(groupId: groupId)
             return mutualLikes.count
         } catch {
             return 0
         }
-         */
-        return 0
     }
     
     func getGroupName(groupId: String) async -> String {
@@ -101,7 +123,9 @@ final class GroupsViewModel {
     func mutualLikes(groupId: String) async throws -> [String] {
         var likedEventsByMembers: [[String]?] = []
         for i in try await groupDocument(groupId: groupId).getDocument(as: group.self).members {
-            await likedEventsByMembers.append(try Firestore.firestore().collection("users").document(i).getDocument(as: UserDB.self).eventIds)
+            if(i != ""){
+                await likedEventsByMembers.append(try Firestore.firestore().collection("users").document(i).getDocument(as: UserDB.self).eventIds)
+            }
         }
         let memb1Events = likedEventsByMembers[0]
         var mutualLikedEvents: [String] = []
