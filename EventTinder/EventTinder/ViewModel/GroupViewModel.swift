@@ -18,7 +18,7 @@ class GroupViewModel: ObservableObject {
     private func fetchGroups() {
         Task {
             do {
-                groups = try await GroupsViewModel.shared.groupsOfUser(userId: Auth.auth().currentUser!.uid)
+                groups = try await GroupsViewModel.shared.groupsOfUser(userId: UserData.shared.username)
             } catch {
                 groups = []
             }
