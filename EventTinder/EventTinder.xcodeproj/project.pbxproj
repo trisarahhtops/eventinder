@@ -193,7 +193,6 @@
 		18DA3AC52BD5ECB50065F151 /* EventTinder */ = {
 			isa = PBXGroup;
 			children = (
-				B8345E212BEC595700C82400 /* DecisionsModel */,
 				18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */,
 				18DA3AD42BD6258A0065F151 /* View */,
 				18DA3AD62BD6259E0065F151 /* ViewModel */,
@@ -229,6 +228,8 @@
 		18DA3AD52BD625950065F151 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B8345E242BEC5A7100C82400 /* SwipeAction.swift */,
+				B8345E282BEC5AFA00C82400 /* DecisionModel.swift */,
 				184B899C2BDCB0B700728576 /* Group.swift */,
 				183F5FF12BEC996400D3C73A /* Friend.swift */,
 				1883242B2BED9D01009829E6 /* UserData.swift */,
@@ -241,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				B8EDA3852BEC9498005773F6 /* GroupsViewModel.swift */,
+				B8345E222BEC59B000C82400 /* DecisionViewModel.swift */,
 				184B898F2BDB681400728576 /* SignInEmailViewModel.swift */,
 				184B89912BDC71CD00728576 /* AuthentificationManagerViewModel.swift */,
 				184B89BA2BE21B1E00728576 /* EventbriteAPIManagerViewModel.swift */,
@@ -252,16 +254,6 @@
 				B8EDA3912BECB8F2005773F6 /* GroupViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		B8345E212BEC595700C82400 /* DecisionsModel */ = {
-			isa = PBXGroup;
-			children = (
-				B8345E222BEC59B000C82400 /* DecisionViewModel.swift */,
-				B8345E242BEC5A7100C82400 /* SwipeAction.swift */,
-				B8345E282BEC5AFA00C82400 /* DecisionModel.swift */,
-			);
-			path = DecisionsModel;
 			sourceTree = "<group>";
 		};
 		B8345E2A2BEC5B1F00C82400 /* Decision */ = {
