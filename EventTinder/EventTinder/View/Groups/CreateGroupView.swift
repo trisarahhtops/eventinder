@@ -11,6 +11,7 @@ struct CreateGroupView: View {
     @ObservedObject var viewModel = CreateGroupViewModel();
     @State private var searchText = ""
     @Binding var showSignInView: Bool
+    @Binding var isShowingCreateGroupView: Bool
     
     var body: some View {
         VStack {
@@ -35,7 +36,7 @@ struct CreateGroupView: View {
             // TODO fix: search bar does not show when view is opened from contentview
             .searchable(text: $searchText)
             NavigationLink("select groupname") {
-                CreateGroupProfileView(friends: viewModel.getFriendnames(), showSignInView: $showSignInView)
+                CreateGroupProfileView(friends: viewModel.getFriendnames(), showSignInView: $showSignInView, isShowingCreateGroupView: $isShowingCreateGroupView)
             }
             .disabled(!viewModel.getIsSelected())
             .font(.headline)
