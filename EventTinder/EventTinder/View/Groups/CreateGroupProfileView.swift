@@ -80,17 +80,10 @@ struct CreateGroupProfileView: View {
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
-            NavigationLink("Create Group") {
-                GroupView(showSignInView: $showSignInView, isShowingCreateGroupView: $isShowingCreateGroupView)
-            }
-            .font(.headline)
-            .foregroundColor(.white)
-            .frame(height: 55)
-            .frame(maxWidth: .infinity)
-            .background(Color.accentColor)
-            .cornerRadius(10)
-            .onTapGesture {
+            Button("Create Group") {
+                print("Task")
                 Task {
+                    print("do")
                     do {
                         print("will add a group")
                         try await GroupsViewModel.shared.createNewGroup(members: self.friends, name: self.groupname, pic: self.groupPicture)
@@ -101,6 +94,12 @@ struct CreateGroupProfileView: View {
                     isShowingCreateGroupView = false
                 }
             }
+            .font(.headline)
+            .foregroundColor(.white)
+            .frame(height: 55)
+            .frame(maxWidth: .infinity)
+            .background(Color.accentColor)
+            .cornerRadius(10)
         }
         .padding(20)
     }

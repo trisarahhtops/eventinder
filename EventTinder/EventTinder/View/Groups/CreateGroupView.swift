@@ -20,20 +20,17 @@ struct CreateGroupView: View {
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
-            NavigationStack {
-                List {
-                    ForEach(searchResults.indices, id: \.self) { index in
-                        HStack {
-                            Text("\(searchResults[index].username)")
-                            Spacer()
-                            Toggle("add", isOn: $viewModel.friends[index].isSelected)
-                                .toggleStyle(.button)
-                        }
+            List {
+                ForEach(searchResults.indices, id: \.self) { index in
+                    HStack {
+                        Text("\(searchResults[index].username)")
+                        Spacer()
+                        Toggle("add", isOn: $viewModel.friends[index].isSelected)
+                            .toggleStyle(.button)
                     }
                 }
-                .listStyle(PlainListStyle())
             }
-            // TODO fix: search bar does not show when view is opened from contentview
+            .listStyle(PlainListStyle())
             .searchable(text: $searchText)
             NavigationLink("select groupname") {
                 CreateGroupProfileView(friends: viewModel.getFriendnames(), showSignInView: $showSignInView, isShowingCreateGroupView: $isShowingCreateGroupView)

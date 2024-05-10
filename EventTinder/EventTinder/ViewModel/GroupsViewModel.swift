@@ -27,7 +27,7 @@ final class GroupsViewModel {
     }
     
     func createNewGroup(members: [String], name: String, pic: String) async throws {
-        
+        print("\(groupcounter)")
         let gr = group(gid: "\(groupcounter)", members: members, name: name, pic: pic)
        // if try await checkMembers(memb: group.members) {
             try groupDocument(groupId: gr.gid).setData(from: gr, merge: false)
