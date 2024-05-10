@@ -28,7 +28,9 @@ class CreateGroupViewModel: ObservableObject {
     func getFriendnames() -> [String]{
         var friendnames: [String] = []
         for friend in friends {
-            friendnames.append(friend.username)
+            if (friend.isSelected) {
+                friendnames.append(friend.username)
+            }
         }
         return friendnames
     }

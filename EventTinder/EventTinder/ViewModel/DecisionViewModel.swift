@@ -40,7 +40,7 @@ class DecisionViewModel: ObservableObject {
         
         //ToDo: Datenbank event geliked
         if(likes){
-            UserManagerViewModel.shared.userLikesEvent(userId: Auth.auth().currentUser!.uid, eventId: decisionModels.last!.event.id)
+            UserManagerViewModel.shared.userLikesEvent(userId: UserData.shared.username, eventId: decisionModels.last!.event.id)
         }
         decisionModels.removeLast()
     }

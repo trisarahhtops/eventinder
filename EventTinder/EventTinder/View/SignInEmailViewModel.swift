@@ -15,21 +15,12 @@ final class SignInEmailViewModel: ObservableObject {
     @Published var userExists: Bool = false
     
     func signUp() async throws {
-        //UserManagerViewModel.shared.getAllUsernames(completion: <#T##([String]?, (any Error)?) -> Void#>)
-        var allUsers: [String] = []
-        for user in allUsers {
-            if (user == username) {
-                print("username already exists")
-                userExists = true
-                return
-            }
-        }
         
         // saves username to global UserData for further local use (profile, creategroup, etc.)
         UserData.shared.username = username
         
         // save new user to database
-        let user = UserDB(uid: username, email: email, photoURL: nil, eventIds: nil)
+        let user = UserDB(uid: username, email: email, photoURL: nil, eventIds: [])
         try await UserManagerViewModel.shared.createNewUser(user: user)
         
         guard !email.isEmpty, !password.isEmpty else {
@@ -47,5 +38,19 @@ final class SignInEmailViewModel: ObservableObject {
         }
         
         try await AuthentificationViewModel.shared.signInUser(email: email, password: password)
+    }
+    
+    func checkUniqueUsername() -> Bool {
+        // check whether username already exists
+        userExists = false
+        let allUsers: [String] = UserManagerViewModel.shared.getAllUserIds()
+        for user in allUsers {
+            if (user == username) {
+                print("username already exists")
+                userExists = true
+                return userExists
+            }
+        }
+        return userExists
     }
 }
