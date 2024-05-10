@@ -10,11 +10,11 @@ import Foundation
 class GroupRowViewModel: ObservableObject {
     @Published var numOfMatches = 0
 
-    init(groupId: String) {
+    /*init(groupId: String) {
         fetchNumOfMatches(groupId: groupId)
-    }
+    }*/
 
-    private func fetchNumOfMatches(groupId: String) {
+    /*private*/ func fetchNumOfMatches(groupId: String) {
         Task {
             numOfMatches = await GroupsViewModel.shared.numberOfMatches(groupId: groupId)
         }

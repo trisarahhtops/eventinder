@@ -58,7 +58,7 @@ struct GroupView: View {
             }
             if (viewModel.groups.count > 0){
                 // List of groups
-                List(viewModel.groups, id: \.self) { group in
+                List($viewModel.groups, id: \.self) { group in
                     GroupRowView(group: group)
                 }
                 .scrollContentBackground(.hidden)

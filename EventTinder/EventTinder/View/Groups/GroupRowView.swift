@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct GroupRowView: View {
-    private var group: group
+    @Binding private var group: group
     @State private var viewModel: GroupRowViewModel
 
-    init(group: group) {
-        self.group = group
-        self.viewModel = GroupRowViewModel(groupId: group.gid)
+    init(group: Binding<group>) {
+        self._group = group
+        self.viewModel = GroupRowViewModel()
+        viewModel.fetchNumOfMatches(groupId: self.group.gid)
     }
     
     var body: some View {

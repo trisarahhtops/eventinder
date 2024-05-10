@@ -78,16 +78,7 @@ struct CreateGroupProfileView: View {
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
-                .onSubmit {
-                    Task {
-                            do {
-                                try await GroupsViewModel.shared.createNewGroup(group: group(gid: "someID", members: self.friends, name: self.groupname, pic: self.groupPicture))
-                            } catch {
-                                print("Error while creating a new group: \(error)")
-                            }
-                        }
-                }
-            NavigationLink("Create Group"/*, destination: GroupView(showSignInView: $showSignInView)*/) {
+            NavigationLink("Create Group") {
                 GroupView(showSignInView: $showSignInView)
             }
             .font(.headline)
@@ -96,6 +87,17 @@ struct CreateGroupProfileView: View {
             .frame(maxWidth: .infinity)
             .background(Color.accentColor)
             .cornerRadius(10)
+            .onTapGesture {
+                Task {
+                    do {
+                        print("will add a group")
+                        try await GroupsViewModel.shared.createNewGroup(group: group(gid: "someID", members: self.friends, name: self.groupname, pic: self.groupPicture))
+                        print("added a group")
+                    } catch {
+                        print("Error while creating a new group: \(error)")
+                    }
+                }
+            }
         }
         .padding(20)
     }
