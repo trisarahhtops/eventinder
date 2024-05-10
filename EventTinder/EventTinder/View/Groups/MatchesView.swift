@@ -8,30 +8,43 @@
 import SwiftUI
 
 struct MatchesView: View {
-    let groupId: String = "5"
+    let groupId: String
     @State var matches: [String] = ["1","4"]
-    let groupName: String = "Test"
+    @State var groupName: String = ""
+    @State private var viewModel: MatchesViewModel
     
-    /*
-    init(groupId: String) async{
+    
+    init(groupId: String) {
         self.groupId = groupId
-        do{
-            self.matches = try await GroupsViewModel.shared.mutualLikes(groupId: groupId)
-        } catch {
-            self.matches = []
-            print("Problem with getting matches")
-        }
-        self.groupName = await GroupsViewModel.shared.getGroupName(groupId: groupId)
+        viewModel = MatchesViewModel(groupId: groupId)
     }
-    */
+     /*   fetchMutualLikesAndName()
+    }
+    
+    private func fetchMutualLikesAndName(){
+        Task{
+            do{
+                self.matches = try await GroupsViewModel.shared.mutualLikes(groupId: groupId)
+                self.groupName = try await GroupsViewModel.shared.getGroupName(groupId: groupId)
+            } catch {
+                self.matches = []
+                self.groupName = ""
+                print("Problem with getting matches or name")
+            }
+        }
+    } */
+    
     var body: some View {
-        Text("Matches of Group \(groupName)")
+        Text("Matches of \(viewModel.groupName)")
             .font(.title)
             .bold()
         Spacer()
-        
-        List(matches, id: \.self) { match in
-            MatchesRowView(id: match)
+        if(viewModel.matches.isEmpty){
+            Text("No matches yet")
+        } else {
+            List(viewModel.matches, id: \.self) { match in
+                MatchesRowView(id: match)
+            }
         }
     }
 }

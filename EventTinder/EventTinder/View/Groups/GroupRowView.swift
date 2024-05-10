@@ -14,12 +14,12 @@ struct GroupRowView: View {
     init(group: Binding<group>) {
         self._group = group
         self.viewModel = GroupRowViewModel()
-        viewModel.fetchNumOfMatches(groupId: self.group.gid)
     }
+    
     
     var body: some View {
         ZStack {
-            if viewModel.numOfMatches > 0{
+            if viewModel.fetchNumOfMatches(groupId: group.gid) > 0{
                 Circle()
                     .frame(width: 14, height: 14, alignment: .leading)
                     .foregroundColor(.accentColor)
@@ -37,7 +37,7 @@ struct GroupRowView: View {
                         .font(.headline)
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("You have \(viewModel.numOfMatches)) matches.")
+                    Text("You have \(viewModel.fetchNumOfMatches(groupId: group.gid)) matches.")
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding()

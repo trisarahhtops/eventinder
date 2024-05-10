@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State public var tabViewSelection = 1
+    @State public var tabViewSelection = 0
     @State private var showSignInView: Bool = false
     
     var body: some View {

@@ -14,9 +14,13 @@ class GroupRowViewModel: ObservableObject {
         fetchNumOfMatches(groupId: groupId)
     }*/
 
-    /*private*/ func fetchNumOfMatches(groupId: String) {
+    /*private*/ func fetchNumOfMatches(groupId: String) -> Int {
         Task {
-            numOfMatches = await GroupsViewModel.shared.numberOfMatches(groupId: groupId)
+            let matches = await GroupsViewModel.shared.numberOfMatches(groupId: groupId)
+            DispatchQueue.main.async {
+                self.numOfMatches = matches
+            }
         }
-    }
+            return numOfMatches
+        }
 }

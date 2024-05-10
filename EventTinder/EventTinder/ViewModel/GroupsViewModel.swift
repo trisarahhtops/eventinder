@@ -35,13 +35,12 @@ final class GroupsViewModel {
             var counter: Int = 0
             do {
                 let querySnapshot = try await groupCollection.getDocuments()
-                for doc in querySnapshot.documents {
+                for _ in querySnapshot.documents {
                     counter += 1
                 }
             } catch {
                 print("Error getting documents: \(error)")
             }
-            print(counter)
             groupcounter = counter
         }
     }
@@ -133,9 +132,10 @@ final class GroupsViewModel {
             return []
         }
         for i in memb1Events! {
+            
             var eventFound = true
             for j in likedEventsByMembers {
-                if((j?.contains(i)) != nil){
+                if(j!.contains(i)){
                     
                 } else {
                     eventFound = false

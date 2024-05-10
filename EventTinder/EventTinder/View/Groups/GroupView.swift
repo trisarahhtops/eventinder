@@ -61,7 +61,11 @@ struct GroupView: View {
             if (viewModel.groups.count > 0){
                 // List of groups
                 List($viewModel.groups, id: \.self) { group in
-                    GroupRowView(group: group)
+                    let gr = group.wrappedValue
+                    let groupId = gr.gid
+                    NavigationLink(destination: MatchesView(groupId: groupId)){
+                        GroupRowView(group: group)
+                    }
                 }
                 .scrollContentBackground(.hidden)
                 .listStyle(PlainListStyle())
