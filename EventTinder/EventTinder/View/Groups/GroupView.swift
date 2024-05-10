@@ -11,7 +11,7 @@ struct GroupView: View {
     @Binding var showSignInView: Bool
     @ObservedObject private var viewModel = GroupViewModel()
     @State private var path = [Int]()
-    @Binding var isShowingCreateGroupView: Bool 
+    @Binding var isShowingCreateGroupView: Bool
     
     var body: some View {
         VStack {
@@ -67,6 +67,9 @@ struct GroupView: View {
                 .listStyle(PlainListStyle())
                 .padding()
             }
+        }
+        .onAppear {
+            viewModel.fetchGroups()
         }
     }
 }
