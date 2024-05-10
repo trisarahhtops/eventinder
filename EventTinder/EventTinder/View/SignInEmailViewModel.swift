@@ -34,12 +34,14 @@ final class SignInEmailViewModel: ObservableObject {
             try await AuthentificationViewModel.shared.createUser(email: email, password: password)
             success = true
         } else {
+            // if username already exists try sign in
             try await signIn()
         }
     }
     
     func signIn() async throws {
-        try await checkUniqueUsername()
+        UserData.shared.username = username
+
         if (userExists) {
             guard !email.isEmpty, !password.isEmpty else {
                 print("No email or password found.")

@@ -10,6 +10,8 @@ import SwiftUI
 struct GroupView: View {
     @Binding var showSignInView: Bool
     @ObservedObject private var viewModel = GroupViewModel()
+    @State private var path = [Int]()
+    @Binding var isShowingCreateGroupView: Bool
     
     var body: some View {
         VStack {
@@ -33,9 +35,9 @@ struct GroupView: View {
             .padding()
             .frame(maxWidth: .infinity, alignment: .trailing)
             
-            NavigationStack {
+            NavigationStack(path: $path) {
                 NavigationLink {
-                    CreateGroupView(showSignInView: $showSignInView)
+                    CreateGroupView(showSignInView: $showSignInView, isShowingCreateGroupView: $isShowingCreateGroupView)
                 } label: {
                     Text("Create new group")
                         .font(.headline)
@@ -66,11 +68,14 @@ struct GroupView: View {
                 .padding()
             }
         }
+        .onAppear {
+            viewModel.fetchGroups()
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        GroupView(showSignInView: .constant(false))
+        GroupView(showSignInView: .constant(false), isShowingCreateGroupView: .constant(false))
     }
 }

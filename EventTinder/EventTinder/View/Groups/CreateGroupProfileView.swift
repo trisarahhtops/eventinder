@@ -14,11 +14,13 @@ struct CreateGroupProfileView: View {
     private var smallProfileSize = UIScreen.main.bounds.width/4-24
     private var bigProfileSize = UIScreen.main.bounds.width-50
     @Binding var showSignInView: Bool
+    @Binding var isShowingCreateGroupView: Bool
 
-    public init(friends: [String], showSignInView: Binding<Bool>) {
+    public init(friends: [String], showSignInView: Binding<Bool>, isShowingCreateGroupView: Binding<Bool>) {
         self.friends = friends
         self._showSignInView = showSignInView
-        // TODO get username from database
+        self._isShowingCreateGroupView = isShowingCreateGroupView
+        // get username from database
         self.friends.append(UserData.shared.username)
     }
     
@@ -78,17 +80,10 @@ struct CreateGroupProfileView: View {
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
-            NavigationLink("Create Group") {
-                GroupView(showSignInView: $showSignInView)
-            }
-            .font(.headline)
-            .foregroundColor(.white)
-            .frame(height: 55)
-            .frame(maxWidth: .infinity)
-            .background(Color.accentColor)
-            .cornerRadius(10)
-            .onTapGesture {
+            Button("Create Group") {
+                print("Task")
                 Task {
+                    print("do")
                     do {
                         print("will add a group")
                         try await GroupsViewModel.shared.createNewGroup(members: self.friends, name: self.groupname, pic: self.groupPicture)
@@ -96,8 +91,15 @@ struct CreateGroupProfileView: View {
                     } catch {
                         print("Error while creating a new group: \(error)")
                     }
+                    isShowingCreateGroupView = false
                 }
             }
+            .font(.headline)
+            .foregroundColor(.white)
+            .frame(height: 55)
+            .frame(maxWidth: .infinity)
+            .background(Color.accentColor)
+            .cornerRadius(10)
         }
         .padding(20)
     }
