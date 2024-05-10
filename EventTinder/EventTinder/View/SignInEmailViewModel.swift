@@ -29,7 +29,7 @@ final class SignInEmailViewModel: ObservableObject {
         UserData.shared.username = username
         
         // save new user to database
-        let user = UserDB(uid: username, email: email, photoURL: nil, eventIds: nil)
+        let user = UserDB(uid: username, email: email, photoURL: nil, eventIds: [])
         try await UserManagerViewModel.shared.createNewUser(user: user)
         
         guard !email.isEmpty, !password.isEmpty else {

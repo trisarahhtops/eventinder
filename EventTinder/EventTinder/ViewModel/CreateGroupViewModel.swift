@@ -14,15 +14,17 @@ class CreateGroupViewModel: ObservableObject {
     
     init(){
         self.groupname = ""
-        let users: [String] = getAllUsers()
-        for user in users {
-            self.friends.append(Friend(username: user))
-        }
+        getAllUsers()
     }
     
-    func getAllUsers() -> [String] {
-        // TODO get user names or change the function
-        return ["Bella", "Sarah", "Günther", "Klaus"]
+    func getAllUsers()  {
+
+        Task{
+            let users: [String] = await UserManagerViewModel.shared.getAllUserIds()
+            for user in users {
+                self.friends.append(Friend(username: user))
+            }
+        }
     }
     
     func getFriendnames() -> [String]{
