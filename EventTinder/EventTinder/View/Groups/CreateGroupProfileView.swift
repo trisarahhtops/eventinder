@@ -17,10 +17,9 @@ struct CreateGroupProfileView: View {
 
     public init(friends: [String], showSignInView: Binding<Bool>) {
         self.friends = friends
-        // TODO get username from database
-        var myUsername = "Anna"
-        self.friends.append(myUsername)
         self._showSignInView = showSignInView
+        // TODO get username from database
+        self.friends.append(UserData.shared.username)
     }
     
     var body: some View {

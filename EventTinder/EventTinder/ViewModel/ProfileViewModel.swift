@@ -9,12 +9,7 @@ import Foundation
 
 @MainActor
 final class ProfileViewModel: ObservableObject {
-    @Published var username: String
-    
-    init() {
-        // TODO get username from database
-        self.username = "Klaus"
-    }
+    @Published var username: String = ""
     
     func signOut() throws {
         try AuthentificationViewModel.shared.signOut()

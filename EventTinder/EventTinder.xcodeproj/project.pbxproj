@@ -29,6 +29,7 @@
 		184B89B32BDF437B00728576 /* CreateGroupProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89B22BDF437B00728576 /* CreateGroupProfileView.swift */; };
 		184B89BB2BE21B1E00728576 /* EventbriteAPIManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89BA2BE21B1E00728576 /* EventbriteAPIManagerViewModel.swift */; };
 		184B89BD2BE222D000728576 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B89BC2BE222D000728576 /* EventData.swift */; };
+		1883242C2BED9D01009829E6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1883242B2BED9D01009829E6 /* UserData.swift */; };
 		18DA3AC72BD5ECB50065F151 /* EventTinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */; };
 		18DA3AC92BD5ECB50065F151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3AC82BD5ECB50065F151 /* ContentView.swift */; };
 		18DA3ACB2BD5ECB80065F151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DA3ACA2BD5ECB70065F151 /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		184B89B22BDF437B00728576 /* CreateGroupProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupProfileView.swift; sourceTree = "<group>"; };
 		184B89BA2BE21B1E00728576 /* EventbriteAPIManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventbriteAPIManagerViewModel.swift; sourceTree = "<group>"; };
 		184B89BC2BE222D000728576 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventData.swift; path = EventTinder/ViewModel/EventData.swift; sourceTree = SOURCE_ROOT; };
+		1883242B2BED9D01009829E6 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		18DA3AC32BD5ECB50065F151 /* EventTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DA3AC62BD5ECB50065F151 /* EventTinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTinderApp.swift; sourceTree = "<group>"; };
 		18DA3AC82BD5ECB50065F151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				184B899C2BDCB0B700728576 /* Group.swift */,
 				183F5FF12BEC996400D3C73A /* Friend.swift */,
+				1883242B2BED9D01009829E6 /* UserData.swift */,
 				184B89BC2BE222D000728576 /* EventData.swift */,
 			);
 			path = Model;
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1883242C2BED9D01009829E6 /* UserData.swift in Sources */,
 				B8345E342BEC5C6400C82400 /* ImageIndicatorView.swift in Sources */,
 				18DA3AC92BD5ECB50065F151 /* ContentView.swift in Sources */,
 				184B89BB2BE21B1E00728576 /* EventbriteAPIManagerViewModel.swift in Sources */,

@@ -16,8 +16,8 @@ struct ProfileView: View {
             Text("Profile")
                 .font(.title)
                 .bold()
-            Text("\($viewModel.username)")
-                .font(.headline)
+            Text("your username: \(UserData.shared.username)")
+                .font(.caption)
                 .bold()
             List {
                 Section {

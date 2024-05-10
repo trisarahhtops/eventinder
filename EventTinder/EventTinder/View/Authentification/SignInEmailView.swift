@@ -19,6 +19,7 @@ struct SignInEmailView: View {
             TextField("Username...", text: $viewModel.username)
                 .padding()
                 .background(Color.gray.opacity(0.2))
+                .foregroundColor(viewModel.userExists ? .red : .gray)
                 .cornerRadius(10)
             TextField("Email...", text: $viewModel.email)
                 .padding()

@@ -12,7 +12,7 @@ struct MatchesView: View {
     @State var matches: [String] = ["1","4"]
     let groupName: String = "Test"
     
-    
+    /*
     init(groupId: String) async{
         self.groupId = groupId
         do{
@@ -23,7 +23,7 @@ struct MatchesView: View {
         }
         self.groupName = await GroupsViewModel.shared.getGroupName(groupId: groupId)
     }
-    
+    */
     var body: some View {
         Text("Matches of Group \(groupName)")
             .font(.title)
@@ -35,7 +35,7 @@ struct MatchesView: View {
         }
     }
 }
-
+/*
 #Preview {
     MatchesView(groupId: "Group1")
-}
+}*/
