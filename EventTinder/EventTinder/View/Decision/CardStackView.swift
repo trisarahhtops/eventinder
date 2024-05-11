@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CardStackView: View {
-    //@StateObject var viewModel = DecisionViewModel()
     var body: some View {
         VStack {
             ZStack {

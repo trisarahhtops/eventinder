@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DecisionView: View {
-    //@ObservedObject var viewModel: DecisionViewModel
     @State private var xOffset: CGFloat = 0
     @State private var degrees: Double = 0
     
