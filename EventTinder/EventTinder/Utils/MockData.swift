@@ -7,6 +7,10 @@
 
 import Foundation
 
+
+//16 events as mock data. Every event has an id, nam, date, description, category and at least two pictures.
+//only in use until an API (e.g. Eventbrite API) is included
+
 struct MockData {
     static let events: [Event] = [
         Event(id: "0", eventName: "Jazz Night Roost", eventDate: "2024-06-15", eventDescription: "Join us for a night filled with smooth jazz melodies and soulful rhythms at The Roost. Sit back, relax, and let the music transport you to a world of tranquility and joy.", eventCategory: "Music", imageURLs: ["jazz1", "jazz3"]),
