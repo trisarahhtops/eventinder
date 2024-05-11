@@ -11,11 +11,15 @@ import SwiftUI
 struct AuthentificationView: View {
     @Binding var showSignInView: Bool
     
+    // creates an authentification view with options to sign in
+    // optional future implementation of other sign in methods like google, eventbrite, apple etc.
     var body: some View {
         VStack {
+            // creates screen title
             Text("Sign Up")
                 .font(.title)
                 .bold()
+            // creates button for email sign in
             NavigationLink {
                 SignInEmailView(showSignInView: $showSignInView)
             } label: {

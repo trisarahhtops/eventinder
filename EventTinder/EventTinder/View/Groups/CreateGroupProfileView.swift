@@ -17,6 +17,7 @@ struct CreateGroupProfileView: View {
     @Binding var createGroupFinished: Bool
     @Environment(\.presentationMode) var isShowingCreateGroupView: Binding<PresentationMode>
 
+    // needed an initalizer to trigger adding the current user to the selected friend group
     public init(friends: [String], showSignInView: Binding<Bool>, createGroupFinished: Binding<Bool>) {
         self.friends = friends
         self._showSignInView = showSignInView
@@ -25,12 +26,15 @@ struct CreateGroupProfileView: View {
         self.friends.append(UserData.shared.username)
     }
     
+    // lets the user choose one of 4 group pictures, a name and create the group
     var body: some View {
         VStack{
+            // creates screen title
             Text("New Group")
                 .font(.title)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
+            // shows current and 4 possible pictures to choose from
             Text("Choose a group picture")
                 .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
@@ -74,6 +78,7 @@ struct CreateGroupProfileView: View {
                 }
             }
             Spacer()
+            // lets the user enter a group name
             Text("Choose a group name")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.headline)
@@ -81,12 +86,14 @@ struct CreateGroupProfileView: View {
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
+            // creates the group when button is triggered
             Button("Create Group") {
                 Task {
                     do {
                         try await GroupsViewModel.shared.createNewGroup(members: self.friends, name: self.groupname, pic: self.groupPicture)
                         print("added a group")
                         createGroupFinished = true
+                        // dismisses the screen and redirects the user back to groupview
                         self.isShowingCreateGroupView.wrappedValue.dismiss()
                     } catch {
                         print("Error while creating a new group: \(error)")
@@ -104,8 +111,7 @@ struct CreateGroupProfileView: View {
     }
 }
 
-/*
+
 #Preview {
-    CreateGroupProfileView(friends: ["Klaus", "Günther", "Peter"], showSignInView: Binding<false>)
+    CreateGroupProfileView(friends: ["Klaus", "Günther", "Peter"], showSignInView: .constant(false), createGroupFinished: .constant(false))
 }
-*/

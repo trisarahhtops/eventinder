@@ -15,6 +15,7 @@ final class SignInEmailViewModel: ObservableObject {
     @Published var userExists: Bool = false
     @Published var success: Bool = false
     
+    // tries to sign up the user if the username doesn't exist already
     func signUp() async throws {
         await checkUniqueUsername()
         
@@ -26,6 +27,7 @@ final class SignInEmailViewModel: ObservableObject {
             let user = UserDB(uid: username, email: email, photoURL: "", eventIds: [], lastSwipedEvent: 16)
             try await UserManagerViewModel.shared.createNewUser(user: user)
             
+            // checks whether user typed in an email and a password
             guard !email.isEmpty, !password.isEmpty else {
                 print("No email or password found.")
                 return
@@ -34,7 +36,7 @@ final class SignInEmailViewModel: ObservableObject {
             try await AuthentificationViewModel.shared.createUser(email: email, password: password)
             success = true
         } else {
-            // if username already exists try sign in
+            // if username already exists, try sign in
             try await signIn()
         }
         
@@ -42,24 +44,27 @@ final class SignInEmailViewModel: ObservableObject {
         print("\(DecisionViewModel.shared.decisionModels)")
     }
     
+    // sign in of user
     func signIn() async throws {
         UserData.shared.username = username
 
-        if (userExists) {
-            guard !email.isEmpty, !password.isEmpty else {
-                print("No email or password found.")
-                return
-            }
-            
-            try await AuthentificationViewModel.shared.signInUser(email: email, password: password)
-            success = true
+        // checks whether user typed in an email and a password
+        guard !email.isEmpty, !password.isEmpty else {
+            print("No email or password found.")
+            return
         }
+        
+        try await AuthentificationViewModel.shared.signInUser(email: email, password: password)
+        success = true
     }
     
+    // checks whether username is unique
     func checkUniqueUsername() async {
         // check whether username already exists
         userExists = false
+        // gets all usernames from database
         let allUsers: [String] = await UserManagerViewModel.shared.getAllUserIds()
+        // iterates through all usernames and check with typed in username
         for user in allUsers {
             if (user == username) {
                 print("username already exists")

@@ -11,16 +11,21 @@ struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
     @Binding var showSignInView: Bool
     
+    // creates a profile screen where the user can manage their email and password and log out
     var body: some View {
         VStack {
+            // creates screen title
             Text("Profile")
                 .font(.title)
                 .bold()
+            // shows your username
             Text("your username: \(UserData.shared.username)")
                 .font(.caption)
                 .bold()
+            // creates a sectioned list to seperate management and update of the profile
             List {
                 Section {
+                    // lets the user log out of their accounts
                     Button("Log Out") {
                         Task {
                             do {
@@ -31,6 +36,7 @@ struct ProfileView: View {
                             }
                         }
                     }
+                    // lets the user reset their password (they will receive a mail)
                     Button("Reset Password") {
                         Task {
                             do {
@@ -44,6 +50,7 @@ struct ProfileView: View {
                 } header: {
                     Text("Manage Account")
                 }
+                // change account detail section
                 changeDetailsSection
             }
         }
@@ -59,6 +66,7 @@ struct ProfileView: View {
 extension ProfileView {
     private var changeDetailsSection: some View {
         Section {
+            // lets the user update their email
             Button("Update Email") {
                 Task {
                     do {
@@ -69,6 +77,7 @@ extension ProfileView {
                     }
                 }
             }
+            // lets users update their password
             Button("Update Password") {
                 Task {
                     do {

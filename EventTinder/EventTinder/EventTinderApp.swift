@@ -15,6 +15,7 @@ struct EventTinderApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
+        // starts app view
         WindowGroup {
             NavigationStack {
                 ContentView()
@@ -23,6 +24,9 @@ struct EventTinderApp: App {
     }
 }
 
+
+// since eventbrite is not currently not intergrated the following code is not used
+// preparation for future eventbrite integration
 class AppDelegate: NSObject, UIApplicationDelegate {
     var window: UIWindow?
     let viewModel = EventbriteAPIManagerViewModel()

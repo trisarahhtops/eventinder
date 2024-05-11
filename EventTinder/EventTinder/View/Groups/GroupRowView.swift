@@ -20,8 +20,10 @@ struct GroupRowView: View {
         return viewModel.fetchNumOfMatches(groupId: group.gid)
     }
     
+    // creates the list element of a group in group view
     var body: some View {
         ZStack {
+            // creates an indicator to highlight that there are matches in a group
             if viewModel.numOfMatches > 0{
                 Circle()
                     .frame(width: 14, height: 14, alignment: .leading)
@@ -29,6 +31,7 @@ struct GroupRowView: View {
                     .padding(.trailing, 0)
                     .offset(x: (UIScreen.main.bounds.width/2 - 50))
             }
+            // shows the picture, name and matches of the group
             HStack {
                 Image(group.pic)
                     .resizable()
@@ -49,8 +52,8 @@ struct GroupRowView: View {
     }
 }
 
-/*
+
 #Preview {
-    GroupRowView(group: group(gid: 1, members: <#T##[String]#>, name: <#T##String#>, pic: <#T##String#>))
+    GroupRowView(group: .constant(group(gid: "1", members: ["Lea", "Anna"], name: "BFF", pic: "group1")))
 }
-*/
+

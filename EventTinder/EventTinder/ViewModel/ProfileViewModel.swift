@@ -18,6 +18,7 @@ final class ProfileViewModel: ObservableObject {
         try AuthentificationViewModel.shared.signOut()
     }
     
+    // resets the password and triggers an email to be send by the firebase auth service
     func resetPassword() async throws {
         let authUser = try AuthentificationViewModel.shared.getAuthenticatedUser()
         
@@ -28,11 +29,13 @@ final class ProfileViewModel: ObservableObject {
         try await AuthentificationViewModel.shared.resetPassword(email: email)
     }
     
+    // lets the user update the email in the firebase auth model
     func updateEmail() async throws {
         let email = "hello123@gmail.com"
         try await AuthentificationViewModel.shared.updateEmail(email: email)
     }
     
+    // lets the user update the password in the firebase auth model
     func updatePassword() async throws {
         let password = "Hello123"
         try await AuthentificationViewModel.shared.updatePassword(password: password)

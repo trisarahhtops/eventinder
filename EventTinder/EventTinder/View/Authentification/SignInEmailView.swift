@@ -11,11 +11,14 @@ struct SignInEmailView: View {
     @StateObject private var viewModel = SignInEmailViewModel()
     @Binding var showSignInView: Bool
     
+    // creates a standard login screen with 3 textfields and a button
     var body: some View {
         VStack {
+            // creates the screen title
             Text("Sign in via Email")
                 .font(.title)
                 .bold()
+            // creates username, email, password textfields
             TextField("Username...", text: $viewModel.username)
                 .padding()
                 .background(Color.gray.opacity(0.2))
@@ -29,6 +32,7 @@ struct SignInEmailView: View {
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
+            // creates a button to sign in the user
             Button {
                 Task {
                     // tries to sign up the user and create a new account

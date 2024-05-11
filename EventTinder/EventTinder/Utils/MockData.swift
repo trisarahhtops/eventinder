@@ -31,27 +31,3 @@ struct MockData {
         Event(id: "15", eventName: "Morning R&B", eventDate: "2025-09-05", eventDescription: "Kickstart your day with a refreshing morning run followed by a delicious brunch! Join us for a scenic run through the city streets or along picturesque trails, then refuel with a hearty brunch featuring energizing treats and refreshing drinks. Whether you're a seasoned runner or just getting started, this event is perfect for fitness enthusiasts and food lovers alike!", eventCategory: "Sport", imageURLs: ["run", "Cafe"])
     ]
 }
-
-        /*.init(
-            id: NSUUID().uuidString,
-            eventName: "Cafe Hopping",
-            eventDate: "24th May 2024",
-            eventDescription: "Cafe hopping with friends blah blah",
-            imageURLs: ["Cafe"]
-             ),
-        .init(
-            id: NSUUID().uuidString,
-            eventName: "Bar",
-            eventDate: "25th May 2024",
-            eventDescription: "Bar with friends blah blah",
-            imageURLs: ["Bar"]
-             ),
-        .init(
-            id: NSUUID().uuidString,
-            eventName: "Hike",
-            eventDate: "26th May 2024",
-            eventDescription: "Hike with friends blah blah",
-            imageURLs: ["Hike"]
-             ),
-    ]
-}*/
