@@ -9,22 +9,25 @@ import SwiftUI
 
 struct GroupRowView: View {
     @Binding private var group: group
-    @State private var viewModel: GroupRowViewModel
+    @ObservedObject private var viewModel: GroupRowViewModel = GroupRowViewModel()
 
     init(group: Binding<group>) {
         self._group = group
-        self.viewModel = GroupRowViewModel()
+        getNumberOfMatches()
     }
     
+    func getNumberOfMatches() {
+        return viewModel.fetchNumOfMatches(groupId: group.gid)
+    }
     
     var body: some View {
         ZStack {
-            if viewModel.fetchNumOfMatches(groupId: group.gid) > 0{
+            if viewModel.numOfMatches > 0{
                 Circle()
                     .frame(width: 14, height: 14, alignment: .leading)
                     .foregroundColor(.accentColor)
                     .padding(.trailing, 0)
-                    .offset(x: (UIScreen.main.bounds.width/2 - 40))
+                    .offset(x: (UIScreen.main.bounds.width/2 - 50))
             }
             HStack {
                 Image(group.pic)
@@ -37,7 +40,7 @@ struct GroupRowView: View {
                         .font(.headline)
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("You have \(viewModel.fetchNumOfMatches(groupId: group.gid)) matches.")
+                    Text("You have \(viewModel.numOfMatches) matches.")
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding()
