@@ -34,15 +34,7 @@ Our target audience would be individuals aged 16-40 who have a hard time decidin
   -> create Group
   -> decide on group events
   -> see Group Matches
-  
-**ToDos until next Week**
-- read up about MongoDB
-- set up a MongoDB database
-- how to connect people to a group
--> julia
 
-- have a look at the eventbrite API
--> sarah and amelie
   
 - set up the screens and navigation
 - deciding and matches -> sarah
