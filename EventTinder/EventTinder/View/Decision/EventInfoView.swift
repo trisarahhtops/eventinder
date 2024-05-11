@@ -30,10 +30,10 @@ struct EventInfoView: View {
                 .font(.title2)
                 .fontWeight(.medium)
                 .padding(.bottom,10)
-            
+         /*
         Text("Some test description for now..")
             .font(.subheadline)
-            .lineLimit(2)
+            .lineLimit(2)*/
         }
         .foregroundStyle(.white)
         .padding()

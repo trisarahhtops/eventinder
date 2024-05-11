@@ -12,6 +12,9 @@ final class ProfileViewModel: ObservableObject {
     @Published var username: String = ""
     
     func signOut() throws {
+        if(UserData.shared.username != ""){
+            UserManagerViewModel.shared.saveLastSwipedEvent(userId: UserData.shared.username, lastSwipedEventId: DecisionViewModel.shared.decisionModels.count)
+        }
         try AuthentificationViewModel.shared.signOut()
     }
     
