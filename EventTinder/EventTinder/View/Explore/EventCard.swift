@@ -12,14 +12,14 @@ struct EventCard: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Image(event.imageURLs.first ?? "")
+            Image(event.imageURLs.first ?? "") // Assuming imageURLs contains at least one element
                 .renderingMode(.original)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill) // Change aspect ratio to fill
+                .frame(width: 160, height: 230) // Increase the size of the image
                 .mask {
                     RoundedRectangle(cornerRadius: 6, style: .continuous)
                 }
-                .frame(height: 225, alignment: .bottom)
                 .clipped()
             
             Text(event.eventName)
