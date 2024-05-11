@@ -26,15 +26,9 @@ class DecisionViewModel: ObservableObject {
         Task{
             if await (UserManagerViewModel.shared.getLastSwipedEvent(userId: UserData.shared.username)-1 > 0){
                 for i in await 0...UserManagerViewModel.shared.getLastSwipedEvent(userId: UserData.shared.username)-1{
-                    print(i)
                     decisionModels.append(DecisionModel(event: MockData.events[i]))
                 }
             }
-            print("fertig")
-            /*
-            for e in MockData.events {
-                decisionModels.append(DecisionModel(event: e))
-            }*/
         }
     }
 
