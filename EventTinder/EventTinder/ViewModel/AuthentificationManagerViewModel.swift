@@ -15,6 +15,7 @@ struct AuthDataResultModel {
     let email: String?
     let photoUrl: String?
     
+    // creates a local authenticated user
     init(user: User) {
         self.uid = user.uid
         self.email = user.email
@@ -28,6 +29,7 @@ final class AuthentificationViewModel {
     
     private init() { }
     
+    // gets the currently signed in authenticated user
     func getAuthenticatedUser() throws -> AuthDataResultModel{
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badServerResponse)
@@ -35,22 +37,26 @@ final class AuthentificationViewModel {
         return AuthDataResultModel(user: user)
     }
     
+    // creates a user in the firebase authentication service
     @discardableResult
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
         return AuthDataResultModel(user: authDataResult.user)
     }
     
+    // sign in of a user in the firebase authentication service
     @discardableResult
     func signInUser(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
         return AuthDataResultModel(user: authDataResult.user)
     }
     
+    // reset of a user password in the firebase authentication service with triggered email to reset it
     func resetPassword(email: String) async throws {
         try await Auth.auth().sendPasswordReset(withEmail: email)
     }
     
+    // update of a user password in the firebase authentication service
     func updatePassword(password: String) async throws {
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badServerResponse)
@@ -59,14 +65,17 @@ final class AuthentificationViewModel {
         try await user.updatePassword(to: password)
     }
     
-    func updateEmail(email: String) async throws {
+    // attention: is deprecated needs another handling
+    // update of a user email in the firebase authentication service
+    /*func updateEmail(email: String) async throws {
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badServerResponse)
         }
         
         try await user.updateEmail(to: email)
-    }
+    }*/
     
+    // sign out of a user from the firebase authentication service
     func signOut() throws {
         try Auth.auth().signOut()
     }

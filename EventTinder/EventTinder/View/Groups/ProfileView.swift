@@ -69,12 +69,15 @@ extension ProfileView {
             // lets the user update their email
             Button("Update Email") {
                 Task {
+                    // TODO is deprecated needs another handling
+                    /*
                     do {
                         try await viewModel.updateEmail()
                         print("Email CHANGED!")
                     } catch {
                         print("Error \(error) while changing the email")
                     }
+                     */
                 }
             }
             // lets users update their password
