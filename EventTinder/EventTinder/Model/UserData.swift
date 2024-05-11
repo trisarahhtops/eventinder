@@ -7,6 +7,7 @@
 
 import Foundation
 
+// saves the username to be accessible in all views
 final class UserData: ObservableObject  {
     static let shared = UserData()
     @Published var username: String = ""

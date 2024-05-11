@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// this viewmodel is currently not used since the redirection URI does not work
 class EventbriteAPIManagerViewModel: ObservableObject {
     @Published var eventData: EventData?
     
@@ -17,6 +18,7 @@ class EventbriteAPIManagerViewModel: ObservableObject {
     let redirectURI = "http://localhost:8080/oauth/redirect"
     var accessToken: String?
     
+    // authorizes the user via login into eventbrite to receive a token
     func authorizeUser(completion: @escaping (Bool) -> Void) {
         let authorizationURL = "https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=\(APIKey)&redirect_uri=\(redirectURI)"
         guard let url = URL(string: authorizationURL) else {
@@ -25,7 +27,7 @@ class EventbriteAPIManagerViewModel: ObservableObject {
             return
         }
         
-        // Open URL in Safari or use SFSafariViewController to open within the app
+        // Open URL in Safari or use SFSafariViewController to open within the app to autorize user via eventbrite
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url) { success in
                 if success {
@@ -41,6 +43,7 @@ class EventbriteAPIManagerViewModel: ObservableObject {
         }
     }
     
+    // requests an access token for the user
     func requestAccessToken(with accessCode: String, completion: @escaping (Bool) -> Void) {
         let url = URL(string: "https://www.eventbrite.com/oauth/token")!
         var request = URLRequest(url: url)
@@ -77,6 +80,7 @@ class EventbriteAPIManagerViewModel: ObservableObject {
         task.resume()
     }
     
+    // gets all events via eventbrite API
     func fetchEvents() {
         authorizeUser { [weak self] success in
             guard success else {
@@ -92,6 +96,7 @@ class EventbriteAPIManagerViewModel: ObservableObject {
         }
     }
     
+    // sends the given request to the given url and processes the received JSON file
     func performRequest(urlString: String) {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
@@ -108,6 +113,7 @@ class EventbriteAPIManagerViewModel: ObservableObject {
         }
     }
     
+    // decodes the JSON into an eventData model
     func parseJSON(eventData: Data) {
         let decoder = JSONDecoder()
         do {
