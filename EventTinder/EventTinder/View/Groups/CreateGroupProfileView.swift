@@ -14,12 +14,13 @@ struct CreateGroupProfileView: View {
     private var smallProfileSize = UIScreen.main.bounds.width/4-24
     private var bigProfileSize = UIScreen.main.bounds.width-50
     @Binding var showSignInView: Bool
-    @Binding var isShowingCreateGroupView: Bool
+    @Binding var createGroupFinished: Bool
+    @Environment(\.presentationMode) var isShowingCreateGroupView: Binding<PresentationMode>
 
-    public init(friends: [String], showSignInView: Binding<Bool>, isShowingCreateGroupView: Binding<Bool>) {
+    public init(friends: [String], showSignInView: Binding<Bool>, createGroupFinished: Binding<Bool>) {
         self.friends = friends
         self._showSignInView = showSignInView
-        self._isShowingCreateGroupView = isShowingCreateGroupView
+        self._createGroupFinished = createGroupFinished
         // get username from database
         self.friends.append(UserData.shared.username)
     }
@@ -85,6 +86,8 @@ struct CreateGroupProfileView: View {
                     do {
                         try await GroupsViewModel.shared.createNewGroup(members: self.friends, name: self.groupname, pic: self.groupPicture)
                         print("added a group")
+                        createGroupFinished = true
+                        self.isShowingCreateGroupView.wrappedValue.dismiss()
                     } catch {
                         print("Error while creating a new group: \(error)")
                     }

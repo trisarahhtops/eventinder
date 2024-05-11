@@ -20,7 +20,7 @@ struct ContentView: View {
                             .tabItem {
                                 Label("explore", systemImage: "safari.fill")
                             }.tag(0)
-                        GroupView(showSignInView: $showSignInView, isShowingCreateGroupView: .constant(false))
+                        GroupView(showSignInView: $showSignInView)
                             .tabItem {
                                 Label("groups", systemImage: "person.3.fill")
                             }.tag(1)

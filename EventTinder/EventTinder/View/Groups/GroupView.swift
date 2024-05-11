@@ -11,7 +11,6 @@ struct GroupView: View {
     @Binding var showSignInView: Bool
     @ObservedObject private var viewModel = GroupViewModel()
     @State private var path = [Int]()
-    @Binding var isShowingCreateGroupView: Bool
     
     var body: some View {
         VStack {
@@ -37,7 +36,7 @@ struct GroupView: View {
             
             NavigationStack(path: $path) {
                 NavigationLink {
-                    CreateGroupView(showSignInView: $showSignInView, isShowingCreateGroupView: $isShowingCreateGroupView)
+                    CreateGroupView(showSignInView: $showSignInView)
                 } label: {
                     Text("Create new group")
                         .font(.headline)
@@ -80,6 +79,6 @@ struct GroupView: View {
 
 #Preview {
     NavigationStack {
-        GroupView(showSignInView: .constant(false), isShowingCreateGroupView: .constant(false))
+        GroupView(showSignInView: .constant(false))
     }
 }

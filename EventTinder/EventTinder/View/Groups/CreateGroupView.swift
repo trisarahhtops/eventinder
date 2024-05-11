@@ -11,7 +11,9 @@ struct CreateGroupView: View {
     @ObservedObject var viewModel = CreateGroupViewModel();
     @State private var searchText = ""
     @Binding var showSignInView: Bool
-    @Binding var isShowingCreateGroupView: Bool
+    @State var createGroupFinished: Bool = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    //@Binding var isShowingCreateGroupView: Bool
     
     var body: some View {
         VStack {
@@ -33,7 +35,7 @@ struct CreateGroupView: View {
             .listStyle(PlainListStyle())
             .searchable(text: $searchText)
             NavigationLink("select groupname") {
-                CreateGroupProfileView(friends: viewModel.getFriendnames(), showSignInView: $showSignInView, isShowingCreateGroupView: $isShowingCreateGroupView)
+                CreateGroupProfileView(friends: viewModel.getFriendnames(), showSignInView: $showSignInView, createGroupFinished: $createGroupFinished)
             }
             .disabled(!viewModel.getIsSelected())
             .font(.headline)
@@ -43,6 +45,11 @@ struct CreateGroupView: View {
             .background(Color.accentColor)
             .cornerRadius(10)
             .padding()
+        }
+        .onAppear{
+            if createGroupFinished {
+                self.presentationMode.wrappedValue.dismiss()
+            }
         }
     }
     
