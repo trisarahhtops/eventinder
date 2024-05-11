@@ -35,6 +35,7 @@ struct SignInEmailView: View {
                     // signs in the user if there already is an account there
                     do {
                         try await viewModel.signUp()
+                        // closes the sign in view when user is logged in
                         showSignInView = !viewModel.success
                         return
                     } catch {

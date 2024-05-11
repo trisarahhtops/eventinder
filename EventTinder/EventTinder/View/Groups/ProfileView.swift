@@ -59,7 +59,6 @@ struct ProfileView: View {
 extension ProfileView {
     private var changeDetailsSection: some View {
         Section {
-            // TODO add another authentification before in order to change email and/or password
             Button("Update Email") {
                 Task {
                     do {
