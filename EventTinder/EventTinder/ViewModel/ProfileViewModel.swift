@@ -30,10 +30,10 @@ final class ProfileViewModel: ObservableObject {
     }
     
     // lets the user update the email in the firebase auth model
-    func updateEmail() async throws {
+    /*func updateEmail() async throws {
         let email = "hello123@gmail.com"
         try await AuthentificationViewModel.shared.updateEmail(email: email)
-    }
+    }*/
     
     // lets the user update the password in the firebase auth model
     func updatePassword() async throws {
