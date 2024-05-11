@@ -13,38 +13,6 @@ Quote: “We are standing in our Melbourne Hostel and both of us are open to eve
 
 Our target audience would be individuals aged 16-40 who have a hard time deciding what to do with friends. These individuals tend to be indecisive. 
 
+**Good to Know**
 
-**Screens**
-- login (with eventbrite account)
-  -> maybe set up filters for events
-  
-- Deciding Screen
-  -> swipe left/right on events
-  -> see event details
-- Matches Screen
-  -> see all matches sorted
-  -> filter matched events by date/group/interest
-  -> book event
-- Explore Screen
-  -> search events
-  -> filter events
-  -> scroll through events
-  -> see events details
-- Group Screen
-  -> create Group
-  -> decide on group events
-  -> see Group Matches
-  
-**ToDos until next Week**
-- read up about MongoDB
-- set up a MongoDB database
-- how to connect people to a group
--> julia
-
-- have a look at the eventbrite API
--> sarah and amelie
-  
-- set up the screens and navigation
-- deciding and matches -> sarah
-- group, create group and login screen, ContentView -> amelie
-  
+- A diagram of the file structure is available in ScreensAndViews.pdf
