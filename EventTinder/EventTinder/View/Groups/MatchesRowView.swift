@@ -16,8 +16,10 @@ struct MatchesRowView: View {
         event = MockData.events[Int(id)!]
     }
     
+    //shows the event picture, name and date of a specific event. Used in MatchesView to create a list of matched events.
     var body: some View {
         HStack{
+        //gets first picture, name and date from the MockData
             Image(event.imageURLs[0])
                 .resizable()
                 .frame(width: 56, height: 56)

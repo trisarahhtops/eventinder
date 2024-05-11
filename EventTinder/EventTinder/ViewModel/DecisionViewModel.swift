@@ -2,7 +2,7 @@
 //  DecisionViewModel.swift
 //  EventTinder
 //
-//  Created by Sarah Zhong on 28/4/2024.
+//  Created by Julia Eisele on 09.05.2024
 //
 
 import Foundation
@@ -13,15 +13,10 @@ class DecisionViewModel: ObservableObject {
     static var shared = DecisionViewModel()
     @Published var decisionModels:[DecisionModel] = []
     @Published var buttonSwipeAction: SwipeAction?
-    
-        //private let service: DecisionService = DecisionService()
 
-    init() {
-        //getAllEvents()
-       // Task { await fetchDecisionModels() }
-    }
     
     func getAllEvents() {
+        //gets all Events that a user has not seen yet (if there are any left)
         decisionModels = []
         Task{
             if await (UserManagerViewModel.shared.getLastSwipedEvent(userId: UserData.shared.username)-1 > 0){
@@ -32,22 +27,8 @@ class DecisionViewModel: ObservableObject {
         }
     }
 
-/*
-    func fetchDecisionModels() async {
-        do {
-            //self.decisionModels = try await service.fetchDecisionModels()
-        } catch {
-            print("DEBUG: Failed to fetch decisions with error: \(error)")
-        }
-    }
- */
     func removeDecision(likes: Bool) {
-        /*
-        guard let index = decisionModels.firstIndex(where: { $0.event.id == decision.event.id }) else { return }
-        decisionModels.remove(at: index)
-         */
-        
-        //ToDo: Datenbank event geliked
+        //removes an event that the user swiped/clicked yes/no on from the list of events that the user has not seen yet. If the user liked that event (clicked yes or swiped right) the event ID is saved in the database
         if(likes){
             UserManagerViewModel.shared.userLikesEvent(userId: UserData.shared.username, eventId: decisionModels.last!.event.id)
         }

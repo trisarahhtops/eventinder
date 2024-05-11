@@ -12,6 +12,7 @@ class MatchesViewModel: ObservableObject {
     @Published var groupName: String = ""
 
     init(groupId: String) {
+        //sets matches and groupname from database
         fetchMatchesAndGroupName(groupId: groupId)
     }
 
@@ -21,7 +22,6 @@ class MatchesViewModel: ObservableObject {
                 self.matches = try await GroupsViewModel.shared.mutualLikes(groupId: groupId)
             } catch {
                 self.matches = []
-                print("Problem with getting matches: \(error)")
             }
 
             self.groupName = await GroupsViewModel.shared.getGroupName(groupId: groupId)

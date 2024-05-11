@@ -2,43 +2,32 @@
 //  MatchesView.swift
 //  EventTinder
 //
-//  Created by Amelie Patzer on 22.04.24.
+//  Created by Julia Eisele on 09.05.2024
 //
+
+
 
 import SwiftUI
 
 struct MatchesView: View {
     let groupId: String
-    @State var matches: [String] = ["1","4"]
-    @State var groupName: String = ""
     @State private var viewModel: MatchesViewModel
     
     
     init(groupId: String) {
+    //saves groupId and creates viewModel based on that groupId
         self.groupId = groupId
         viewModel = MatchesViewModel(groupId: groupId)
     }
-     /*   fetchMutualLikesAndName()
-    }
-    
-    private func fetchMutualLikesAndName(){
-        Task{
-            do{
-                self.matches = try await GroupsViewModel.shared.mutualLikes(groupId: groupId)
-                self.groupName = try await GroupsViewModel.shared.getGroupName(groupId: groupId)
-            } catch {
-                self.matches = []
-                self.groupName = ""
-                print("Problem with getting matches or name")
-            }
-        }
-    } */
-    
+
+    //shows all the matched events of a group    
     var body: some View {
+    //shows groupname
         Text("Matches of \(viewModel.groupName)")
             .font(.title)
             .bold()
         Spacer()
+    //says "No matches yet" or, if there are any matches, shows all matches in a List. Creates MatchesRowView for every matched event to do so
         if(viewModel.matches.isEmpty){
             Text("No matches yet")
         } else {
@@ -48,7 +37,4 @@ struct MatchesView: View {
         }
     }
 }
-/*
-#Preview {
-    MatchesView(groupId: "Group1")
-}*/
+
