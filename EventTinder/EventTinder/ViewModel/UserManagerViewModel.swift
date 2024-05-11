@@ -14,6 +14,7 @@ struct UserDB: Codable {
     let email: String?
     let photoURL: String?
     let eventIds: [String]?
+    let lastSwipedEvent: Int
 }
 
 final class UserManagerViewModel {
@@ -41,7 +42,17 @@ final class UserManagerViewModel {
         return snapshot
     }
     
-
+    func getLastSwipedEvent(userId:String) async -> Int{
+        do{
+            return try await getUser(userId: userId).lastSwipedEvent
+        } catch {
+            return 15
+        }
+    }
+    
+    func saveLastSwipedEvent(userId: String, lastSwipedEventId: Int){
+        userDocument(userId: userId).updateData(["lastSwipedEvent": lastSwipedEventId])
+    }
     
     func editUser(user: UserDB) async throws {
         try userDocument(userId: user.uid).setData(from: user, merge: true)
@@ -63,6 +74,4 @@ final class UserManagerViewModel {
         }
         return userIds
     }
-    
-
 }
