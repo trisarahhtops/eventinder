@@ -37,8 +37,8 @@ struct ContentView: View {
         }
         // checks whether user is signed in when the app is opened
         .onAppear() {
-            let authUser = try? AuthentificationViewModel.shared.getAuthenticatedUser()
-            self.showSignInView = authUser == nil
+            let authUser = UserData.shared.username
+            self.showSignInView = (authUser == "")
         }
         // opens the authentification screen if the user is not logged in already
         .fullScreenCover(isPresented: $showSignInView, content: {
