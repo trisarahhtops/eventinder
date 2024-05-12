@@ -6,7 +6,9 @@ https://github.com/trisarahhtops/eventinder/tree/newMain
 
 ## Student Name and ID ##
 Sarah Zhong (14242150)
+
 Amelie Patzer (24859163)
+
 Julia Sofie Eisele (25059991)
 
 # Problem Statement #
