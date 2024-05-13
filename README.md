@@ -5,7 +5,7 @@ Assignment 3 - Group Project
 
 ## GitHub Link ##
 
-https://github.com/trisarahhtops/eventinder/tree/newMain
+https://github.com/trisarahhtops/eventinder
 
 ## Student Name and ID ##
 Sarah Zhong (14242150)
