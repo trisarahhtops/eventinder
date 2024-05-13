@@ -30,4 +30,5 @@ Our target audience would be individuals aged 16-40 who have a hard time decidin
 ## Good to Know ##
 
 - A diagram of the file structure is available in ScreensAndViews.pdf
-- sometimes there is an issue with XCode not being able to find the Firestore packages. It can be resolved by discarding the changes of the Package.resolved and the .xuserstate files. 
+- Sometimes there is an issue with XCode not being able to find the Firestore packages. It can be resolved by discarding the changes of the Package.resolved and the .xuserstate files.
+- Had some issues with merging with the branches to the main so we had to copy and paste some of the code into the main instead.
