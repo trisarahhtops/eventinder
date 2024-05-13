@@ -27,7 +27,7 @@ Quote: “We are standing in our Melbourne Hostel and both of us are open to eve
 
 Our target audience would be individuals aged 16-40 who have a hard time deciding what to do with friends. These individuals tend to be indecisive. 
 
-**Good to Know**
+## Good to Know ##
 
 - A diagram of the file structure is available in ScreensAndViews.pdf
 - sometimes there is an issue with XCode not being able to find the Firestore packages. It can be resolved by discarding the changes of the Package.resolved and the .xuserstate files. 
